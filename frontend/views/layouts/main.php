@@ -25,43 +25,41 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 
-<header>
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav ml-auto'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+
+  <header class="mb-4" style="z-index: 1">
+    <nav class="bg-transparent " style="border-bottom: 0.1px solid #fff;">
+        <div class="container d-flex flex-wrap">
+          <ul class="nav me-auto">
+            <li class="nav-item"><a href="#" class="nav-link text-white font-weight-normal px-2 active" aria-current="page">0045 043204434</a></li>
+          </ul>
+          <ul class="nav">
+            <!-- <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li> -->
+            <!-- <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li> -->
+          </ul>
+        </div>
+    </nav>
+    <div class="container d-flex flex-wrap justify-content-center pt-3 pb-3 border-none">
+      <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        <span class="fs-4">
+            <img src="/frontend/web/images/logo-white.png" width='150px'>
+        </span>
+      </a>
+      <div class="col-12 col-lg-auto mb-3 mb-lg-0">
+        <ul class="nav me-auto">
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2 active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">About</a></li>
+          </ul>
+      </div>
+    </div>
 </header>
 
+
 <main role="main" class="flex-shrink-0">
-    <div class="container">
+    <div class="">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>

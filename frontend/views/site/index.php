@@ -1,53 +1,82 @@
 <?php
 
-/* @var $this yii\web\View */
-
 $this->title = 'My Yii Application';
+
 ?>
+
+<style>
+    #fondo:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 4rem;
+}
+</style>
 <div class="site-index">
 
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
+    <div class="jumbotron text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height:700px;background-position:bottom;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;margin-top: -15rem;">
+        <div class="align-middle h-100" style="padding-top: 15rem;">
+           <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0" style="position: relative">AFFORDABLE TOURS</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+            <p class="lead text-white mb-4 position-relative">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+            <p>
+                <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative" href="http://www.yiiframework.com">VIEW TOURS</a>
+                <button type="button" class="btn btn-outline-light border-white text-white pr-5 pl-5 font-weight-bold position-relative" style="border:4px">VIEW TICKETS</button>
+            </p>  
+        </div>
+           
     </div>
 
-    <div class="body-content">
+    <div class="container">
 
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+            <div class="col-lg-12 text-center mt-2 mb-4">
+                <h2 class="h3 font-weight-bold">DOMINICAN REPUBLIC <span class="text-success">TOP</span> TOURS</h2>
+                <p class="text-muted">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing, elit. Aliquam reprehenderit fugit labore ab eligendi nesciunt?
+                </p>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <?php for ($i=0;$i<13;$i++): ?>
+                
+                <div class="col-md-4 mb-3 border-rounded">
+                    <div style="background-image:url(/frontend/web/images/stock-1.jpg);height:200px;background-position:center;background-repeat: no-repeat;background-size:cover;">
+                        
+                    </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                    <div class="bg-white p-2">
+                        <span class="font-weight-bold small">SENNA RIVER</span>
+                        <span class="small">TOUR</span>
+                        <span class="float-right text-muted"><i class="far fa-heart"></i></span>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+                    </div>
+
+                </div>
+
+            <?php endfor ?>
+            
         </div>
 
     </div>
+</div>
+<div class="stars">
+   <div class="stars-ghost">
+      <div class="star"><i class="fas fa-star"></i></div>
+      <div class="star"><i class="fas fa-star"></i></div>
+      <div class="star"><i class="fas fa-star"></i></div>
+      <div class="star"><i class="fas fa-star"></i></div>
+      <div class="star"><i class="fas fa-star"></i></div>
+   </div>
+   <div class="star"><i class="far fa-star"></i></div>
+   <div class="star"><i class="far fa-star"></i></div>
+   <div class="star"><i class="far fa-star"></i></div>
+   <div class="star"><i class="far fa-star"></i></div>
+   <div class="star"><i class="far fa-star"></i></div>
+   <div class="info">Hover Stars</div>
 </div>
