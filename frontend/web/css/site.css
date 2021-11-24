@@ -1,3 +1,37 @@
+.bg-success{
+    background: #60BF00 !important;
+}
+
+.text-success{
+    color: #60BF00 !important;
+}
+
+
+input[type="file"]{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.div-lab label{
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    background-color: #f2f3f4;
+    display: inline-block;
+    transition: all .5s;
+    cursor: pointer;
+    padding: 15px 40px !important;
+    text-transform: uppercase;
+    width: fit-content;
+    text-align: center;
+}
+
+
+
 main > .container {
     padding: 70px 15px 20px;
 }

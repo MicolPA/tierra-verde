@@ -21,12 +21,18 @@ class m211002_161227_create_db_structure extends Migration
 
         $this->createTable('{{%tourist_packages}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->integer()->notNull(),
+            'name' => $this->string()->notNull(),
             'type_id' => $this->integer()->notNull(),
             'location_id' => $this->integer()->notNull(),
             'kids' => $this->integer()->defaultValue(1)->notNull(),
             'age_restricted' => $this->integer()->notNull(),
             'pick_up_location_id' => $this->string()->notNull(),
+            'image_1' => $this->string()->notNull(),
+            'image_2' => $this->string(),
+            'image_3' => $this->string(),
+            'image_4' => $this->string(),
+            'image_5' => $this->string(),
+            'image_6' => $this->string(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);
@@ -72,6 +78,7 @@ class m211002_161227_create_db_structure extends Migration
             'adults' => $this->integer()->notNull(),
             'kids' => $this->integer()->notNull(),
             'status_id' => $this->integer()->defaultValue(0)->notNull(),
+            'user_id' => $this->integer()->defaultValue(0)->notNull(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);

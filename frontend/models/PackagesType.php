@@ -43,9 +43,9 @@ class PackagesType extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'name' => 'Nombre',
+            'created_at' => 'Creación',
+            'updated_at' => 'Última actualización',
         ];
     }
 

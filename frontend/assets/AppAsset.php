@@ -15,7 +15,7 @@ class AppAsset extends AssetBundle
         'css/bootstrap.min.css',
         'css/site.css',
         'css/style.css',
-        'css/all.min.css',
+        'css/custom-style.css',
     ];
     public $js = [
         'js/bootstrap.min.js',
@@ -24,7 +24,7 @@ class AppAsset extends AssetBundle
         'js/jquery.rating.pack.js',
     ];
     public $depends = [
-        // 'yii\web\YiiAsset',
-        // 'yii\bootstrap4\BootstrapAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap4\BootstrapAsset',
     ];
 }

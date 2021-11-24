@@ -7,38 +7,35 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\TouristPackagesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tourist Packages';
+$this->title = 'Paquete turístico';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tourist-packages-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Tourist Packages', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <h1><?= Html::encode($this->title) ?> <?= Html::a('Registrar paquete', ['create'], ['class' => 'btn btn-success float-right btn-sm']) ?></h1>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="table-responsive bg-white p-2">
+                <?= GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    // 'filterModel' => $searchModel,
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                        'name',
+                         'type_id',
+                        'location_id',
+                        'age_restricted',
+                        'created_at',
+                        'updated_at',
 
-            'id',
-            'name',
-            'type_id',
-            'location_id',
-            'kids',
-            //'age_restricted',
-            //'pick_up_location_id',
-            //'created_at',
-            //'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+                        ['class' => 'yii\grid\ActionColumn'],
+                    ],
+                ]); ?>
+            </div>
+        </div>
+    </div>
 
 </div>

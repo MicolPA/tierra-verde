@@ -7,6 +7,7 @@ use frontend\models\TouristPackagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * TouristPackagesController implements the CRUD actions for TouristPackages model.
@@ -18,6 +19,7 @@ class TouristPackagesController extends Controller
      */
     public function behaviors()
     {
+        $this->layout = 'admin-menu';
         return array_merge(
             parent::behaviors(),
             [
@@ -40,7 +42,7 @@ class TouristPackagesController extends Controller
         $searchModel = new TouristPackagesSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('index-admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -68,8 +70,25 @@ class TouristPackagesController extends Controller
     {
         $model = new TouristPackages();
 
+        $servicios = new \common\models\Servicios();
+
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            print_r($this->request->post());
+
+            
+            if ($model->load($this->request->post())) {
+
+                $tipo = $servicios->limpiar_string($model->type->name);
+                for ($i = 0; $i < 7; $i++) {
+                    if (isset($model["image_$i"])) {
+                        $model["image_$i"] = $this->get_photo_url($model, $tipo, $model->name, $i);
+                    }
+                }
+                $model->location_id = 1;
+                $model->pick_up_location_id = "1";
+                $model->created_at = date("d-m-Y H:i:s");
+                $model->updated_at = date("d-m-Y H:i:s");
+                $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -79,6 +98,37 @@ class TouristPackagesController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+
+    function get_photo_url($model, $tipo, $titulo, $i){
+
+        $imagen = null;
+        $path = "images/".$tipo;
+
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        $path = "$path/$titulo/";
+
+        echo $path;
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        $field = "image_$i";
+        if (UploadedFile::getInstance($model, "$field")) {
+            $model[$field] = UploadedFile::getInstance($model, "$field");
+            $imagen = $path . "foto-$i-" . date('Y-m-d H-i-s') . ".". $model[$field]->extension;
+            $model[$field]->saveAs($imagen);
+            $model[$field] = $imagen;
+        }else{
+            $imagen = $model[$field];
+        }
+
+        return $imagen;
+
     }
 
     /**

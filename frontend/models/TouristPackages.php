@@ -38,8 +38,8 @@ class TouristPackages extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'type_id', 'location_id', 'age_restricted', 'pick_up_location_id', 'created_at', 'updated_at'], 'required'],
-            [['name', 'type_id', 'location_id', 'kids', 'age_restricted'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['type_id', 'location_id', 'kids', 'age_restricted'], 'integer'],
+            [['created_at', 'updated_at', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'descripcion'], 'safe'],
             [['pick_up_location_id'], 'string', 'max' => 255],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PackagesType::className(), 'targetAttribute' => ['type_id' => 'id']],
@@ -53,14 +53,14 @@ class TouristPackages extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'type_id' => 'Type ID',
-            'location_id' => 'Location ID',
-            'kids' => 'Kids',
-            'age_restricted' => 'Age Restricted',
-            'pick_up_location_id' => 'Pick Up Location ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'name' => 'Nombre',
+            'type_id' => 'Tipo',
+            'location_id' => 'Ubicación',
+            'kids' => '¿Niños permitidos?',
+            'age_restricted' => 'Edad mínima',
+            'pick_up_location_id' => 'Ubicación de salida',
+            'created_at' => 'Creación',
+            'updated_at' => 'Última actualización',
         ];
     }
 

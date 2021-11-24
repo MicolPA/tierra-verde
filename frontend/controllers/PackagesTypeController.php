@@ -18,6 +18,7 @@ class PackagesTypeController extends Controller
      */
     public function behaviors()
     {
+        $this->layout = 'admin-menu';
         return array_merge(
             parent::behaviors(),
             [
@@ -69,8 +70,11 @@ class PackagesTypeController extends Controller
         $model = new PackagesType();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $model->created_at = date("Y-m-d H:i:s");
+                $model->updated_at = date("Y-m-d H:i:s");
+                $model->save();
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();

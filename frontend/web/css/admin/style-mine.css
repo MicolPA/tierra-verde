@@ -1,0 +1,60 @@
+.no-link{
+	text-decoration: none;
+}
+
+.no-link:hover{
+	text-decoration: none;
+}
+
+.table th a{
+	color:black;
+}
+
+form{
+	width: 100% !important;
+}
+
+.input-r{
+	border-radius: 50px !important;
+	background: #f3f3f3 !important;
+}
+.button-r{
+	border-radius: 50px !important;
+}
+
+.border-3{
+	border-left: 1px solid #ccc;
+	border-right : 1px solid #ccc;
+	border-bottom : 1px solid #ccc;
+	padding: 0px !important;
+}
+
+.btn-outline-primary:hover, .btn-outline-success:hover{
+	color:white !important;
+}
+
+.bg-orange{
+	background: #eb7121;
+}
+
+.text-orange{
+	color: #eb7121;
+}
+
+.bg-darkred{
+	background: #9c1a00;
+}
+
+.text-darkred{
+	color: #9c1a00;
+}
+
+.bg-darkblue{
+	background: #39448f;
+}
+
+.text-darkblue{
+	color: #39448f;
+}
+
+

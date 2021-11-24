@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\PackagesType */
 
-$this->title = 'Create Packages Type';
+$this->title = 'Registrar paquete';
 $this->params['breadcrumbs'][] = ['label' => 'Packages Types', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

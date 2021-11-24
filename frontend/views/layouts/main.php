@@ -30,7 +30,7 @@ AppAsset::register($this);
     <nav class="bg-transparent " style="border-bottom: 0.1px solid #fff;">
         <div class="container d-flex flex-wrap">
           <ul class="nav me-auto">
-            <li class="nav-item"><a href="#" class="nav-link text-white font-weight-normal px-2 active" aria-current="page">0045 043204434</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold px-2 active" aria-current="page">0045 043204434</a></li>
           </ul>
           <ul class="nav">
             <!-- <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li> -->
@@ -42,16 +42,17 @@ AppAsset::register($this);
       <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">
-            <img src="/frontend/web/images/logo-white.png" width='150px'>
+            <img src="/frontend/web/images/logo-white.png" width='180px'>
         </span>
       </a>
       <div class="col-12 col-lg-auto mb-3 mb-lg-0">
         <ul class="nav me-auto">
             <li class="nav-item"><a href="#" class="nav-link text-white px-2 active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link text-white px-2">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link text-white px-2">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link text-white px-2">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link text-white px-2">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">About us</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">DMC</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">Other Service</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">Blog</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white px-2">Contact us</a></li>
           </ul>
       </div>
     </div>
