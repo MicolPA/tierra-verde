@@ -1,3 +1,8 @@
+html,
+body {
+    height: 100%;
+}
+
 .bg-success{
     background: #60BF00 !important;
 }
@@ -32,19 +37,162 @@ input[type="file"]{
 
 
 
-main > .container {
+.rounded-4{
+    border-radius: 4rem !important;
+}
+
+body{
+    background: #f9f9f9;
+}
+
+.div-gradient{
+    min-height:100px;
+    margin-top: -100px;
+    padding-top: 2rem;
+    /* background: linear-gradient(63deg, rgba(4,2,54,1) 0%, rgba(195,200,203,1) 60%); */
+    background: linear-gradient(rgba(26, 32, 37, 0) 0px, rgba(26, 32, 37, 0.07) 3%, rgba(26, 32, 37, 0.14) 6%, rgba(26, 32, 37, 0.21) 9%, rgba(26, 32, 37, 0.28) 12%, rgba(26, 32, 37, 0.35) 15%, rgba(26, 32, 37, 0.42) 18%, rgba(26, 32, 37, 0.49) 21%, rgba(26, 32, 37, 0.56) 24%, rgba(26, 32, 37, 0.63) 100%, rgba(26, 32, 37, 0.7) 100%, rgba(26, 32, 37, 0.77) 100%);
+}
+
+
+.w-fit-content{
+   width: fit-content;
+}
+
+.btn-success, .bg-success{
+   background: #60bf00 !important;
+}
+
+.text-warning{
+   color: #fff89a !important;
+}
+
+.text-success{
+   color: #60bf00 !important;
+}
+
+.font-12{
+   font-size: 12px !important;
+}
+
+.font-weight-bold-2{
+    font-weight: 600;
+}
+
+.btn-outline-light{
+    border: 2px solid #fff !important;
+}
+
+.btn-outline-light:hover{
+   background: #60bf00;
+}
+
+.stars {
+   width: 420px;
+   height: 80px;
+   text-align: center;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+}
+
+.stars .star {
+   width: 84px;
+   position: absolute;
+   top: 0;
+   font-size: 70px;
+   color: #FFFD5A;
+   text-shadow: 1px 2px 4px #C3C11C;
+   padding: 0 5px;
+}
+
+.stars-ghost {
+   width: 0px;
+   position: relative;
+   float: left;
+   overflow: hidden;
+   height: 100%;
+   z-index: 2;
+}
+
+.stars .star:nth-child(1) {
+   left: 0;
+}
+
+.stars .star:nth-child(2) {
+   left: 84px;
+}
+
+.stars .star:nth-child(3) {
+   left: 168px;
+}
+
+.stars .star:nth-child(4) {
+   left: 252px;
+}
+
+.stars .star:nth-child(5) {
+   left: 336px;
+}
+
+
+.table-striped tbody tr:nth-of-type(odd){
+   background: transparent !important;
+}
+
+input[type="file"]{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.div-lab label{
+   width: 100% !important;
+   font-size: 14px;
+   font-weight: 600;
+   color: #000;
+   background-color: #fff;
+   display: inline-block;
+   transition: all .5s;
+   cursor: pointer;
+   padding: 15px 40px !important;
+   text-transform: uppercase;
+   width: fit-content;
+   text-align: center;
+}
+
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
     padding: 70px 15px 20px;
 }
 
 .footer {
-    background-color: #f5f5f5;
-    font-size: .9em;
     height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
 }
 
-.footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
 }
 
 .not-set {
@@ -54,28 +202,41 @@ main > .container {
 
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
-    content: '';
-    left: 3px;
+    position: relative;
+    top: 1px;
     display: inline-block;
-    width: 0;
-    height: 0;
-    border: solid 5px transparent;
-    margin: 4px 4px 2px 4px;
-    background: transparent;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
 }
 
 a.asc:after {
-    border-bottom: solid 7px #212529;
-    border-top-width: 0;
+    content: "\e151";
 }
 
 a.desc:after {
-    border-top: solid 7px #212529;
-    border-bottom-width: 0;
+    content: "\e152";
 }
 
-.grid-view th,
-.grid-view td:last-child {
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
     white-space: nowrap;
 }
 
@@ -100,8 +261,8 @@ a.desc:after {
 
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
-    padding-top: 7px;
-    color: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border: none;
 }
 
 @media(max-width:767px) {
@@ -109,14 +270,13 @@ a.desc:after {
         display:block;
         text-align: left;
         width: 100%;
-        padding: 10px 0;
+        padding: 10px 15px;
     }
 }
 
 .nav > li > form > button.logout:focus,
 .nav > li > form > button.logout:hover {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
 }
 
 .nav > li > form > button.logout:focus {

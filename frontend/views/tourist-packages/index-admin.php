@@ -25,11 +25,21 @@ $this->params['breadcrumbs'][] = $this->title;
                         ['class' => 'yii\grid\SerialColumn'],
 
                         'name',
-                         'type_id',
-                        'location_id',
-                        'age_restricted',
-                        'created_at',
-                        'updated_at',
+                        [
+                            'label' => 'Tipo',
+                            'attribute' => 'type.name',
+                        ],
+                        [
+                            'label' => 'Ubicación',
+                            'attribute' => 'location.name',
+                        ],
+                        [
+                            'label' => 'Ubicación de salida',
+                            'attribute' => 'locationPickup.name',
+                        ],
+                        // 'age_restricted',
+                        // 'created_at',
+                        // 'updated_at',
 
                         ['class' => 'yii\grid\ActionColumn'],
                     ],

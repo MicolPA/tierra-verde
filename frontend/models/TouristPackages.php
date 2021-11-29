@@ -39,7 +39,7 @@ class TouristPackages extends \yii\db\ActiveRecord
         return [
             [['name', 'type_id', 'location_id', 'age_restricted', 'pick_up_location_id', 'created_at', 'updated_at'], 'required'],
             [['type_id', 'location_id', 'kids', 'age_restricted'], 'integer'],
-            [['created_at', 'updated_at', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'descripcion'], 'safe'],
+            [['created_at', 'updated_at', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'description'], 'safe'],
             [['pick_up_location_id'], 'string', 'max' => 255],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PackagesType::className(), 'targetAttribute' => ['type_id' => 'id']],
@@ -92,5 +92,10 @@ class TouristPackages extends \yii\db\ActiveRecord
     public function getType()
     {
         return $this->hasOne(PackagesType::className(), ['id' => 'type_id']);
+    }
+
+    public function getLocationPickup()
+    {
+        return $this->hasOne(Location::className(), ['id' => 'pick_up_location_id']);
     }
 }

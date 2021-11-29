@@ -150,12 +150,12 @@ $class_zonas = $page == 4 ? 'bg-dark text-white' : 'text-dark';
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
               <!-- <img src="images/faces/face5.jpg" alt="profile"/> -->
-              <!-- <span class="nav-profile-name">Hola, <?//= Yii::$app->user->identity->first_name . " " . Yii::$app->user->identity->last_name ?></span> -->
+              <span class="nav-profile-name">Hola, <?= Yii::$app->user->identity->first_name . " " . Yii::$app->user->identity->last_name ?></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="/frontend/web/site/logout">
                 <i class="mdi mdi-logout text-primary"></i>
-                Cerrar sesión
+                Cerrar sesión 
               </a>
             </div>
           </li>
@@ -171,37 +171,37 @@ $class_zonas = $page == 4 ? 'bg-dark text-white' : 'text-dark';
         <ul class="nav">
 
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'admin') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-bold' ?>">
-            <a class="nav-link <?= strpos(Yii::$app->request->url, 'admin') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-bold' ?>" href="/frontend/web/admin">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'admin') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-bold' ?>" href="/frontend/web/admin">
               <i class="fas fa-home mr-3"></i>
               <span class="menu-title">Inicio</span>
             </a>
           </li>
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'location') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link <?= strpos(Yii::$app->request->url, 'location') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/location">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'location') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/location">
               <i class="fas fa-map-marker-alt mr-3"></i>
               <span class="menu-title">Ubicaciones</span>
             </a>
           </li>
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'packages-type') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link <?= strpos(Yii::$app->request->url, 'packages-type') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/packages-type">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'packages-type') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/packages-type">
               <i class="fas fa-umbrella-beach mr-3"></i>
               <span class="menu-title">Tipos de paquetes</span>
             </a>
           </li>
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'tourist-packages') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link <?= strpos(Yii::$app->request->url, 'tourist-packages') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages">
-              <i class="fas fa-umbrella-beach mr-3"></i>
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'tourist-packages') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages">
+              <i class="fas fa-plane mr-3"></i>
               <span class="menu-title">Paquetes</span>
             </a>
           </li>
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages">
               <i class="fas fa-users mr-3"></i>
               <span class="menu-title">Usuarios</span>
             </a>
           </li>
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages">
               <i class="fas fa-chart-pie mr-3"></i>
               <span class="menu-title">Reportes</span>
             </a>

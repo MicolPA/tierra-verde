@@ -1,6 +1,6 @@
 <?php
 
-$this->title = 'My Yii Application';
+$this->title = 'Mi tierra verde';
 
 ?>
 
@@ -17,15 +17,15 @@ $this->title = 'My Yii Application';
 }
 </style>
 
-    <div class="jumbotron text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height:800px;background-position:bottom;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;margin-top: -15rem;">
+    <div class="jumbotron text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height:720px;background-position:bottom;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;margin-top: -15rem;">
         <div class="align-middle h-100" style="padding-top: 15rem;">
-           <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0" style="position: relative">AFFORDABLE TOURS</h1>
+           <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">AFFORDABLE TOURS</h1>
 
             <p class="lead text-white mb-4 position-relative">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
 
             <p>
-                <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative mr-3" href="http://www.yiiframework.com">VIEW TOURS</a>
-                <button type="button" class="btn btn-outline-light border-white text-white pr-5 pl-5 font-weight-bold position-relative" style="border:4px">VIEW TICKETS</button>
+                <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative mr-3 btn-sm" href="http://www.yiiframework.com">VIEW TOURS</a>
+                <button type="button" class="btn btn-outline-light border-white text-white pr-5 pl-5 font-weight-bold position-relative btn-sm" style="border:4px">VIEW TICKETS</button>
             </p>  
         </div>
            
@@ -127,14 +127,14 @@ $this->title = 'My Yii Application';
                                 
                             </div>
                             <div class="p-2">
-                                <p class="text-center font-weight-bold-2 mb-1">
+                                <p class="text-center font-weight-normal mb-1">
                                     <span class="text-success">
                                         Sightseen tour
                                     </span>
                                     booking
                                 </p>
                                 <p class="text-center small text-muted">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque modi optio ad.
+                                    Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Tempora excepturi temporibus minima repellat libero delectus.
                                 </p>
                             </div>
                         </div>
@@ -142,18 +142,23 @@ $this->title = 'My Yii Application';
                 </div>
             </div>
         </div>
-        <div class="jumbotron text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/stock-3.jpg);height:500px;background-position:center;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;">
-            <div class="align-middle h-100" style="padding-top: 1rem;">
-               <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0" style="position: relative">BELONG ANYWHERE</h1>
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="jumbotron  text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/stock-3.jpg);height:400px;background-position:center;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;">
+                    <div class="align-middle h-100" style="padding-top: 1rem;">
+                       <h1 class="display-2 text-white font-weight-bold-2 position-relative mb-0" style="position: relative">BELONG ANYWHERE</h1>
 
-                <p class="lead text-white mb-4 position-relative">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae iste cupiditate enim.</p>
+                        <p class="lead text-white mb-4 position-relative">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae iste cupiditate enim.</p>
 
-                <p class="display-2 text-white position-relative">
-                    <i class="far fa-play-circle"></i>
-                </p>  
+                        <p class="display-1 text-white position-relative mt-4">
+                            <i class="far fa-play-circle"></i>
+                        </p>  
+                    </div>
+                       
+                </div>
             </div>
-               
         </div>
+        
 
 
         <div class="container">
@@ -169,43 +174,43 @@ $this->title = 'My Yii Application';
             <div class="row">
                 <div class="col-md-4">
                     <div class="bg-white rounded text-center p-4 pt-5 pb-5">
-                        <div class="display-3 w-fit-content text-success border rounded-circle pt-2 pb-2 pr-4 pl-4 m-auto">
+                        <div class="display-1 w-fit-content text-success border rounded-circle pt-2 pb-2 pr-4 pl-4 m-auto">
                             <i class="fas fa-walking"></i>
                         </div>
 
-                        <p class="font-weight-bold-2 mt-3">
+                        <p class="font-weight-normal h4 mt-3">
                             <span class="text-success">+120</span>
                             <span>Premium tours</span>
                         </p>
 
                         <p class="text-center small text-muted">
-                            Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Veniam provident quas corporis doloribus.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Iure dolores, eligendi voluptates atque ipsa qui eius quidem, deleniti illum eaque.
                         </p>
 
-                        <a href="" class="btn btn-outline-dark btn-sm font-weight-bold-2 pr-4 pl-4">READ MORE</a>
+                        <a href="" class="btn btn-outline-dark btn-sm font-weight-normal h4 pr-4 pl-4 mt-4">READ MORE</a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="bg-white rounded text-center p-4 pt-5 pb-5">
-                        <div class="display-3 w-fit-content text-success border rounded-circle pt-2 pb-2 pr-4 pl-4 m-auto">
+                        <div class="display-1 w-fit-content text-success border rounded-circle pt-2 pb-2 pr-4 pl-4 m-auto">
                             <i class="fas fa-walking"></i>
                         </div>
 
-                        <p class="font-weight-bold-2 mt-3">
+                        <p class="font-weight-normal h4 mt-3">
                             <span class="text-success">+1000</span>
                             <span>Costumers</span>
                         </p>
 
                         <p class="text-center small text-muted">
-                            Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Veniam provident quas corporis doloribus.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Iure dolores, eligendi voluptates atque ipsa qui eius quidem, deleniti illum eaque.
                         </p>
 
-                        <a href="" class="btn btn-outline-dark btn-sm font-weight-bold-2 pr-4 pl-4">READ MORE</a>
+                        <a href="" class="btn btn-outline-dark btn-sm font-weight-bold-2 pr-4 pl-4 mt-4">READ MORE</a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="bg-white rounded text-center p-4 pt-5 pb-5">
-                        <div class="display-3 w-fit-content text-success border rounded-circle pt-2 pb-2 pr-4 pl-4 m-auto">
+                        <div class="display-1 w-fit-content text-success border rounded-circle pt-2 pb-2 pr-4 pl-4 m-auto">
                             <i class="fas fa-walking"></i>
                         </div>
 
@@ -215,10 +220,10 @@ $this->title = 'My Yii Application';
                         </p>
 
                         <p class="text-center small text-muted">
-                            Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Veniam provident quas corporis doloribus.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Iure dolores, eligendi voluptates atque ipsa qui eius quidem, deleniti illum eaque.
                         </p>
 
-                        <a href="" class="btn btn-outline-dark btn-sm font-weight-bold-2 pr-4 pl-4">READ MORE</a>
+                        <a href="" class="btn btn-outline-dark btn-sm font-weight-bold-2 pr-4 pl-4 mt-4">READ MORE</a>
                     </div>
                 </div>
             </div>

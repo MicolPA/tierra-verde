@@ -27,6 +27,7 @@ class m211002_161227_create_db_structure extends Migration
             'kids' => $this->integer()->defaultValue(1)->notNull(),
             'age_restricted' => $this->integer()->notNull(),
             'pick_up_location_id' => $this->string()->notNull(),
+            'description' => $this->string()->notNull(),
             'image_1' => $this->string()->notNull(),
             'image_2' => $this->string(),
             'image_3' => $this->string(),

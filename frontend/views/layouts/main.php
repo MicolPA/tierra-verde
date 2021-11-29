@@ -26,7 +26,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 
-  <header class="mb-4" style="z-index: 1">
+  <header class="mb-4" style="z-index: 1;display: none;">
     <nav class="bg-transparent " style="border-bottom: 0.1px solid #fff;">
         <div class="container d-flex flex-wrap">
           <ul class="nav me-auto">
@@ -57,14 +57,61 @@ AppAsset::register($this);
       </div>
     </div>
 </header>
+<nav class="bg-transparent " style="z-index: 1;border-bottom: 0.1px solid #ccc;">
+    <div class="container">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold px-2 active" aria-current="page">0045 043204434</a></li>
+        </ul>
+        <!-- <ul class="nav float-right d-inline">
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2 text-white">Login</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2 text-white">Sign up</a></li>
+        </ul> -->
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-transparent" style="z-index:1">
+  <div class="container">
+    
+    <a class="navbar-brand" href="#"><img src="/frontend/web/images/logo-white.png" width='180px'></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample07">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <ul class="navbar-nav float-right">
+            <li class="nav-item mr-3">
+              <a class="nav-link active font-weight-light" href="#">Home</a>
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link active font-weight-light" href="#">About us</a>
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link active font-weight-light" href="#">DMC</a>
+            </li>
+           <li class="nav-item mr-3 dropdown">
+              <a class="nav-link dropdown-toggle active font-weight-light" href="#" id="dropdown07" data-toggle="dropdown" aria-expanded="false">Other Service</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown07">
+                <a class="dropdown-item" href="#">Private tours</a>
+                <a class="dropdown-item" href="#">University programs</a>
+                <a class="dropdown-item" href="#">Private circuit</a>
+              </div>
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link active font-weight-light" href="#">Blog</a>
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link active font-weight-light" href="#">Contact us</a>
+            </li>
+            
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
 <main role="main" class="flex-shrink-0">
     <div class="">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </main>

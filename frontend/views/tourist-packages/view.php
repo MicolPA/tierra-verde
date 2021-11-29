@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'location_id',
             'kids',
             'age_restricted',
+            'description',
             'pick_up_location_id',
             'created_at',
             'updated_at',

@@ -40,7 +40,7 @@ class TouristPackagesSearch extends TouristPackages
      */
     public function search($params)
     {
-        $query = TouristPackages::find();
+        $query = TouristPackages::find()->orderBy(['id' => SORT_DESC]);
 
         // add conditions that should always apply here
 

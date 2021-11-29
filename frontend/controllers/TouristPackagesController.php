@@ -73,10 +73,11 @@ class TouristPackagesController extends Controller
         $servicios = new \common\models\Servicios();
 
         if ($this->request->isPost) {
-            print_r($this->request->post());
-
-            
+            $post = $this->request->post();
             if ($model->load($this->request->post())) {
+
+                // print_r($model->description);
+                // exit;
 
                 $tipo = $servicios->limpiar_string($model->type->name);
                 for ($i = 0; $i < 7; $i++) {
@@ -84,11 +85,11 @@ class TouristPackagesController extends Controller
                         $model["image_$i"] = $this->get_photo_url($model, $tipo, $model->name, $i);
                     }
                 }
-                $model->location_id = 1;
-                $model->pick_up_location_id = "1";
+
                 $model->created_at = date("d-m-Y H:i:s");
                 $model->updated_at = date("d-m-Y H:i:s");
                 $model->save();
+                $this->savePayment($model->id, $post);
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -98,6 +99,70 @@ class TouristPackagesController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+    function savePayment($id, $post){
+
+
+        for ($i=1; $i<12; $i++) {
+                
+            if (isset($post['adults'][$i])) {
+
+                $model = new \frontend\models\TouristPackagesPayments();
+                $model->from = $i;
+                $model->until = $i;
+                    
+                $model->adults_amount = $post['adults'][$i];
+
+                if (isset($post['kids'][$i])) {
+                    $model->kids_amount = $post['kids'][$i];
+                }
+
+                $model->tourist_packages_id = $id;
+                $model->created_at = date("d-m-Y H:i:s");
+                $model->updated_at = date("d-m-Y H:i:s");
+                if (!$model->save()) {
+                    print_r($model->errors);
+                    exit;
+                }
+            }
+
+            
+        }
+
+        $this->savePaymentRange($post, $id, 11, 15);
+        $this->savePaymentRange($post, $id, 16, 20);
+        $this->savePaymentRange($post, $id, 20, 20);
+        
+
+        
+
+    }
+
+
+    function savePaymentRange($post, $id, $from, $until){
+
+        if (isset($post['adults'][$from])) {
+
+            $model = new \frontend\models\TouristPackagesPayments();
+            $model->from = $from;
+            $model->until = $until;
+                
+            $model->adults_amount = $post['adults'][$from];
+
+            if (isset($post['kids'][$from])) {
+                $model->kids_amount = $post['kids'][$from];
+            }
+
+            $model->tourist_packages_id = $id;
+            $model->created_at = date("d-m-Y H:i:s");
+            $model->updated_at = date("d-m-Y H:i:s");
+            $model->save();
+
+
+        }
+
+
     }
 
 
