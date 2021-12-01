@@ -39,7 +39,7 @@ class TouristPackages extends \yii\db\ActiveRecord
         return [
             [['name', 'type_id', 'location_id', 'age_restricted', 'pick_up_location_id', 'created_at', 'updated_at'], 'required'],
             [['type_id', 'location_id', 'kids', 'age_restricted'], 'integer'],
-            [['created_at', 'updated_at', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'description'], 'safe'],
+            [['created_at', 'updated_at', 'short_description', 'description', 'kids_age_min', 'kids_age_max', 'max_people', 'sub_type_id'], 'safe'],
             [['pick_up_location_id'], 'string', 'max' => 255],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PackagesType::className(), 'targetAttribute' => ['type_id' => 'id']],
@@ -57,10 +57,13 @@ class TouristPackages extends \yii\db\ActiveRecord
             'type_id' => 'Tipo',
             'location_id' => 'Ubicación',
             'kids' => '¿Niños permitidos?',
-            'age_restricted' => 'Edad mínima',
+            'age_restricted' => 'Edad mínima permitida',
+            'kids_age_min' => 'Edad mínima niños',
+            'kids_age_max' => 'Edad máxima niños',
             'pick_up_location_id' => 'Ubicación de salida',
             'created_at' => 'Creación',
             'updated_at' => 'Última actualización',
+            'sub_type_id' => 'Subcategoría',
         ];
     }
 
@@ -97,5 +100,10 @@ class TouristPackages extends \yii\db\ActiveRecord
     public function getLocationPickup()
     {
         return $this->hasOne(Location::className(), ['id' => 'pick_up_location_id']);
+    }
+
+    public function getSubtype()
+    {
+        return $this->hasOne(PackagesSubType::className(), ['id' => 'sub_type_id']);
     }
 }

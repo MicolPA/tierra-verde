@@ -188,8 +188,14 @@ $class_zonas = $page == 4 ? 'bg-dark text-white' : 'text-dark';
               <span class="menu-title">Tipos de paquetes</span>
             </a>
           </li>
+          <li class="nav-item <?= strpos(Yii::$app->request->url, 'packages-sub-type') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'packages-sub-type') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/packages-sub-type">
+              <i class="fas fa-umbrella-beach mr-3"></i>
+              <span class="menu-title">Subcategorías de paquetes</span>
+            </a>
+          </li>
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'tourist-packages') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'tourist-packages') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'tourist-packages') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/frontend/web/tourist-packages/list">
               <i class="fas fa-plane mr-3"></i>
               <span class="menu-title">Paquetes</span>
             </a>

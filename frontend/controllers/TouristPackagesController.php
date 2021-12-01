@@ -39,6 +39,17 @@ class TouristPackagesController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'main';
+        $searchModel = new TouristPackagesSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionList()
+    {
         $searchModel = new TouristPackagesSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
@@ -78,7 +89,6 @@ class TouristPackagesController extends Controller
 
                 // print_r($model->description);
                 // exit;
-
                 $tipo = $servicios->limpiar_string($model->type->name);
                 for ($i = 0; $i < 7; $i++) {
                     if (isset($model["image_$i"])) {
@@ -90,7 +100,8 @@ class TouristPackagesController extends Controller
                 $model->updated_at = date("d-m-Y H:i:s");
                 $model->save();
                 $this->savePayment($model->id, $post);
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['list']);
+                // return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -133,9 +144,7 @@ class TouristPackagesController extends Controller
         $this->savePaymentRange($post, $id, 11, 15);
         $this->savePaymentRange($post, $id, 16, 20);
         $this->savePaymentRange($post, $id, 20, 20);
-        
-
-        
+           
 
     }
 
@@ -168,7 +177,9 @@ class TouristPackagesController extends Controller
 
     function get_photo_url($model, $tipo, $titulo, $i){
 
-        $imagen = null;
+        $field = "image_$i";
+        $imagen = $model[$field];
+        
         $path = "images/".$tipo;
 
         if (!file_exists($path)) {
@@ -177,21 +188,16 @@ class TouristPackagesController extends Controller
 
         $path = "$path/$titulo/";
 
-        echo $path;
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
         }
 
-        $field = "image_$i";
         if (UploadedFile::getInstance($model, "$field")) {
             $model[$field] = UploadedFile::getInstance($model, "$field");
             $imagen = $path . "foto-$i-" . date('Y-m-d H-i-s') . ".". $model[$field]->extension;
             $model[$field]->saveAs($imagen);
             $model[$field] = $imagen;
-        }else{
-            $imagen = $model[$field];
         }
-
         return $imagen;
 
     }
@@ -207,8 +213,21 @@ class TouristPackagesController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $servicios = new \common\models\Servicios();
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->updated_at = date("d-m-Y H:i:s");
+            $tipo = $servicios->limpiar_string($model->type->name);
+            for ($i = 0; $i < 7; $i++) {
+                if (isset($model["image_$i"])) {
+                    $model["image_$i"] = $this->get_photo_url($model, $tipo, $model->name, $i);
+                }
+            }
+            if (!$model->save()) {
+                print_r($model->errors);
+                exit;
+            }
+            return $this->redirect(['list']);
+            // return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [

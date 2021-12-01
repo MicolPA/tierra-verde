@@ -5,19 +5,12 @@ $this->title = 'Mi tierra verde';
 ?>
 
 <style>
-    #fondo:before {
-    content:'';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.5);
-    padding-top: 4rem;
+    
 }
 </style>
-
-    <div class="jumbotron text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height:720px;background-position:bottom;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;margin-top: -15rem;">
+    
+    <div class="jumbotron text-center bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height: 720px;">
+    <!-- <div class="jumbotron text-center bg-transparent bg-image pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height:720px;background-position:bottom;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;margin-top: -15rem;"> -->
         <div class="align-middle h-100" style="padding-top: 15rem;">
            <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">AFFORDABLE TOURS</h1>
 

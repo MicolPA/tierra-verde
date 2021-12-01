@@ -46,9 +46,16 @@ label[for="inputfile"] {
         </div>
 
         <div class="col-md-6">
+            <?= $form->field($model, 'max_people')->textInput()->label("Cupo") ?>
+        </div>
+
+        <div class="col-md-6">
              <?php echo $form->field($model, 'type_id')->dropDownList(ArrayHelper::map(\frontend\models\PackagesType::find()->orderBy(['name' => SORT_ASC])->all(), 'id', 'name'),['prompt'=>'Seleccionar...']); ?>
         </div>
 
+        <div class="col-md-6">
+             <?php echo $form->field($model, 'sub_type_id')->dropDownList(ArrayHelper::map(\frontend\models\PackagesSubType::find()->orderBy(['name' => SORT_ASC])->all(), 'id', 'name'),['prompt'=>'Seleccionar...']); ?>
+        </div>
 
         <div class="col-md-6">
              <?php echo $form->field($model, 'location_id')->dropDownList(ArrayHelper::map(\frontend\models\Location::find()->orderBy(['name' => SORT_ASC])->all(), 'id', 'name'),['prompt'=>'Seleccionar...']); ?>
@@ -57,20 +64,25 @@ label[for="inputfile"] {
              <?php echo $form->field($model, 'pick_up_location_id')->dropDownList(ArrayHelper::map(\frontend\models\Location::find()->orderBy(['name' => SORT_ASC])->all(), 'id', 'name'),['prompt'=>'Seleccionar...']); ?>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
             <?= $form->field($model, 'kids')->dropdownList(array(''=>'Seleccionar...', '1' => 'Si', '0' => 'No'), []); ?>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
             <?= $form->field($model, 'age_restricted')->textInput(['type' => 'number']) ?>
         </div>
-
+        <div class="col-md-3">
+            <?= $form->field($model, 'kids_age_min')->textInput(['type' => 'number']) ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'kids_age_max')->textInput(['type' => 'number']) ?>
+        </div>
 
         <div class="col-md-12">
             <?= $form->field($model, 'description')->widget(EditorClassic::className(),[
                 'clientOptions' => [
                     'language' => 'es',
-                    'uploadUrl' => 'upload',    //url for upload files
+                    'uploadUrl' => '/frontend/web/image',    //url for upload files
                     'uploadField' => 'image',   //field name in the upload form
                 ],
                 'options' => [
@@ -80,6 +92,9 @@ label[for="inputfile"] {
                     'height' => '400px',
                ],
             ])->label("Descripción"); ?>
+        </div>
+        <div class="col-md-12">
+            <?= $form->field($model, 'short_description')->textarea(['rows' => '4'])->label("Pequeña descripción"); ?>
         </div>
    
     </div>
@@ -158,7 +173,7 @@ label[for="inputfile"] {
    </div>
 
    <div class="row">
-       <div class="col-md-12 text-left">
+       <div class="col-md-12 text-right">
             <?= Html::submitButton('Guardar paquete', ['class' => 'btn btn-success']) ?>
         </div>
    </div>

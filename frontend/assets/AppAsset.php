@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
         // 'css/site.css',
         // 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
         'css/all.min.css',
+        'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css',
         'css/materialdesignicons.min.css',
         'css/vendor.bundle.base.css?v=2',
         'css/dataTables.bootstrap4.css?v=2',

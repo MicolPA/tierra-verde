@@ -30,7 +30,7 @@ AppAsset::register($this);
     <nav class="bg-transparent " style="border-bottom: 0.1px solid #fff;">
         <div class="container d-flex flex-wrap">
           <ul class="nav me-auto">
-            <li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold px-2 active" aria-current="page">0045 043204434</a></li>
+            <li class="nav-item"><a href="/" class="nav-link text-white font-weight-bold px-2 active" aria-current="page">0045 043204434</a></li>
           </ul>
           <ul class="nav">
             <!-- <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li> -->
@@ -71,7 +71,7 @@ AppAsset::register($this);
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-transparent" style="z-index:1">
   <div class="container">
     
-    <a class="navbar-brand" href="#"><img src="/frontend/web/images/logo-white.png" width='180px'></a>
+    <a class="navbar-brand" href="/"><img src="/frontend/web/images/logo-white.png" width='180px'></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
