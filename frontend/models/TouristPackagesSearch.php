@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\TouristPackages;
@@ -40,7 +41,12 @@ class TouristPackagesSearch extends TouristPackages
      */
     public function search($params)
     {
+        $get = Yii::$app->request->get();
         $query = TouristPackages::find()->orderBy(['id' => SORT_DESC]);
+
+        if (isset($get['sub_type_id'])) {
+            $this->sub_type_id = $get['sub_type_id'];
+        }
 
         // add conditions that should always apply here
 
@@ -63,7 +69,7 @@ class TouristPackagesSearch extends TouristPackages
             'type_id' => $this->type_id,
             'location_id' => $this->location_id,
             'kids' => $this->kids,
-            'age_restricted' => $this->age_restricted,
+            'sub_type_id' => $this->sub_type_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

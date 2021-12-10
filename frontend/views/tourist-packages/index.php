@@ -14,7 +14,7 @@ $this->title = 'Paquete turístico';
 <div class="container">
     <div class="row">
         <div class="col-md-3 text-gray">
-            <?= $this->render('_aside') ?>
+            <?= $this->render('_aside', ['model' => $searchModel]) ?>
         </div>
         <div class="col-md-9">
             <?php foreach ($dataProvider->query->all() as $m): ?>

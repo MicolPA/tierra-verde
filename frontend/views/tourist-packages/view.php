@@ -7,26 +7,42 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\TouristPackages */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Tourist Packages', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="tourist-packages-view">
+<div class="jumbotron text-left bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-1" id='fondo' style="background-image:url(/frontend/web/<?= $model->image_1 ?>);">
+    <div class="container">
+        <div class="align-middle h-100" style="padding-top: 20rem;">
+            <h1 class="display-4 text-uppercase text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">
+                <?= $model->name ?>
+            </h1>
+            <p class="lead text-white mb-4 position-relative small">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
+        </div>
+    </div>
+       
+</div>
+<div class="container">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="h3 font-weight-light">Description</p>
+                </div>
+                <div class="col-md-8 text-muted">
+                        <?= $model->description ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            
+        </div>
+    </div>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
+    <div class="d-none">
+        <p class="text-muted">
+            <?= $model->description ?>
+        </p>
+        <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
@@ -42,4 +58,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    </div>
 </div>

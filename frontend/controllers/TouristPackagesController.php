@@ -67,6 +67,7 @@ class TouristPackagesController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout = 'main';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -90,9 +91,10 @@ class TouristPackagesController extends Controller
                 // print_r($model->description);
                 // exit;
                 $tipo = $servicios->limpiar_string($model->type->name);
+                $name = $servicios->limpiar_string($model->name);
                 for ($i = 0; $i < 7; $i++) {
                     if (isset($model["image_$i"])) {
-                        $model["image_$i"] = $this->get_photo_url($model, $tipo, $model->name, $i);
+                        $model["image_$i"] = $this->get_photo_url($model, $tipo, $name, $i);
                     }
                 }
 
@@ -185,16 +187,17 @@ class TouristPackagesController extends Controller
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
         }
-
+        $titulo = str_replace(" ", '-', trim($titulo));
         $path = "$path/$titulo/";
 
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
         }
 
+        $date = new \DateTime();
         if (UploadedFile::getInstance($model, "$field")) {
             $model[$field] = UploadedFile::getInstance($model, "$field");
-            $imagen = $path . "foto-$i-" . date('Y-m-d H-i-s') . ".". $model[$field]->extension;
+            $imagen = $path . "foto-$i-" . $date->getTimestamp() . ".". $model[$field]->extension;
             $model[$field]->saveAs($imagen);
             $model[$field] = $imagen;
         }

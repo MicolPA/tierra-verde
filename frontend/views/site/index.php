@@ -17,7 +17,7 @@ $this->title = 'Mi tierra verde';
             <p class="lead text-white mb-4 position-relative">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
 
             <p>
-                <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative mr-3 btn-sm" href="http://www.yiiframework.com">VIEW TOURS</a>
+                <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative mr-3 btn-sm" href="/frontend/web/tourist-packages">VIEW TOURS</a>
                 <button type="button" class="btn btn-outline-light border-white text-white pr-5 pl-5 font-weight-bold position-relative btn-sm" style="border:4px">VIEW TICKETS</button>
             </p>  
         </div>
@@ -70,7 +70,7 @@ $this->title = 'Mi tierra verde';
 
                 <div class="col-md-12 text-center mt-5 mb-5">
                     <div>
-                        <a href="#" class="btn btn-success btn-sm pr-5 pl-5 font-weight-bold">VIEW ALL TOURS</a>
+                        <a href="/frontend/web/tourist-packages" class="btn btn-success btn-sm pr-5 pl-5 font-weight-bold">VIEW ALL TOURS</a>
                     </div>
                 </div>
                 

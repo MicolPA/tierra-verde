@@ -25,7 +25,6 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 
-
   <header class="mb-4" style="z-index: 1;display: none;">
     <nav class="bg-transparent " style="border-bottom: 0.1px solid #fff;">
         <div class="container d-flex flex-wrap">
@@ -60,7 +59,16 @@ AppAsset::register($this);
 <nav class="bg-transparent " style="z-index: 1;border-bottom: 0.1px solid #ccc;">
     <div class="container">
         <ul class="navbar-nav">
-            <li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold px-2 active" aria-current="page">0045 043204434</a></li>
+          <div class="row">
+            <div class="col-md-10">
+            <a href="#" class="nav-link text-white font-weight-normal px-2 active" aria-current="page">0045 043204434</a>
+              
+            </div>
+            <div class="col-md-2">
+            <a href="#" class="nav-link text-white font-weight-normal px-2" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
+              
+            </div>
+          </div>
         </ul>
         <!-- <ul class="nav float-right d-inline">
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2 text-white">Login</a></li>
