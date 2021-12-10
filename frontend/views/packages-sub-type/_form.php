@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+$icon = \frontend\models\Icon::find()->all();
+
 ?>
 
 <style>

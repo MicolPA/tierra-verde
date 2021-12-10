@@ -29,15 +29,15 @@ $cat = \frontend\models\PackagesSubType::find()->orderBy(['name' => SORT_ASC])->
             <i class="fas fa-angle-right"></i>
         </li>
         <?= StarRating::widget([
-                        'name' => 'fecha_entrega1',
-                        'value' => 3,
-                        'pluginOptions' => [
-                            'displayOnly' => true,
-                            'theme' => 'krajee-uni',
-                            'filledStar' => '<i class="fas fa-star"></i>',
-                            'emptyStar' => '<i class="fas fa-star"></i>',
-                            ]
-                        ]);
-                     ?> 
+            'name' => 'fecha_entrega1',
+            'value' => 3,
+            'pluginOptions' => [
+                'displayOnly' => true,
+                'theme' => 'krajee-uni',
+                'filledStar' => '<i class="fas fa-star"></i>',
+                'emptyStar' => '<i class="fas fa-star"></i>',
+                ]
+            ]);
+         ?> 
     </a>
 </ul>
