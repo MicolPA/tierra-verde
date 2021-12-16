@@ -39,7 +39,7 @@ class TouristPackages extends \yii\db\ActiveRecord
         return [
             [['name', 'type_id', 'location_id', 'age_restricted', 'pick_up_location_id', 'created_at', 'updated_at'], 'required'],
             [['type_id', 'location_id', 'kids', 'age_restricted'], 'integer'],
-            [['created_at', 'updated_at', 'short_description', 'description', 'kids_age_min', 'kids_age_max', 'max_people', 'sub_type_id'], 'safe'],
+            [['created_at', 'updated_at', 'short_description', 'description', 'kids_age_min', 'kids_age_max', 'max_people', 'sub_type_id', 'rating'], 'safe'],
             [['pick_up_location_id'], 'string', 'max' => 255],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PackagesType::className(), 'targetAttribute' => ['type_id' => 'id']],

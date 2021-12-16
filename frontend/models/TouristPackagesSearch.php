@@ -45,7 +45,15 @@ class TouristPackagesSearch extends TouristPackages
         $query = TouristPackages::find()->orderBy(['id' => SORT_DESC]);
 
         if (isset($get['sub_type_id'])) {
-            $this->sub_type_id = $get['sub_type_id'];
+            if ($get['sub_type_id']) {
+                $this->sub_type_id = $get['sub_type_id'];
+            }
+        }
+
+        if (isset($get['star_rating'])) {
+            if ($get['star_rating']) {
+                $this->rating = $get['star_rating'];
+            }
         }
 
         // add conditions that should always apply here
@@ -67,6 +75,7 @@ class TouristPackagesSearch extends TouristPackages
             'id' => $this->id,
             'name' => $this->name,
             'type_id' => $this->type_id,
+            'rating' => $this->rating,
             'location_id' => $this->location_id,
             'kids' => $this->kids,
             'sub_type_id' => $this->sub_type_id,

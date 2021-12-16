@@ -15,6 +15,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\TouristPackages;
 
 /**
  * Site controller
@@ -46,7 +47,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    // 'logout' => ['post'],
                 ],
             ],
         ];
@@ -75,7 +76,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = TouristPackages::find()->orderBy(['rating' => SORT_DESC])->all();    
+        return $this->render('index',[
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -83,7 +87,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionLogin()
+    public function actionLogin($url=null)
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -91,13 +95,24 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            // if (Yii::$app->user->identity->role_id == 1) {
+            //     return $this->redirect(['site/index']);
+            // }else{
+            //     return $this->goBack();
+            // }
+
+            if ($url) {
+                return $this->redirect([$url]);
+            }else{
+                return $this->goHome();
+            }
         }
 
         $model->password = '';
 
         return $this->render('login', [
             'model' => $model,
+            'url' => $url,
         ]);
     }
 
@@ -151,15 +166,20 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionSignup()
+    public function actionSignup($url=null)
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
-            return $this->goHome();
+            if ($url) {
+                return $this->redirect([$url]);
+            }else{
+                return $this->goHome();
+            }
         }
 
         return $this->render('signup', [
+            'url' => $url,
             'model' => $model,
         ]);
     }

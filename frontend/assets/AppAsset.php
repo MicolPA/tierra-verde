@@ -25,9 +25,9 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         // 'https://code.jquery.com/jquery-3.2.1.slim.min.js',
-        // 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',
-        // 'js/bootstrap.min.js',
-        // 'js/vendor.bundle.base.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/ppoper.js/1.12.9/umd/popper.min.js',
+        'js/bootstrap.min.js',
+        'js/vendor.bundle.base.js',
         'js/Chart.min.js',
         'js/jquery.dataTables.js',
         'js/dataTables.bootstrap4.js',

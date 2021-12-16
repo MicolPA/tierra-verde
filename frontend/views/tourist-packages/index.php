@@ -1,14 +1,14 @@
 <?php
 
+use kartik\rating\StarRating;
 $this->title = 'Paquete turístico';
 
 ?>
 <div class="jumbotron text-center bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/stock-3.jpg);">
     <div class="align-middle h-100" style="padding-top: 15rem;">
-       <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">PAQUETES TURÍSTICOS</h1>
+       <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">TOURIST PACKAGES</h1>
         <p class="lead text-white mb-4 position-relative">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
     </div>
-       
 </div>
 
 <div class="container">
@@ -40,6 +40,17 @@ $this->title = 'Paquete turístico';
                     </div>
                     <div class="col-md-8 p-3 pt-4 pb-4">
                         <p class="text-uppercase h4">
+                            <?= StarRating::widget([
+                                'name' => 'star_rating--',
+                                'value' => $m->rating,
+                                'pluginOptions' => [
+                                    'displayOnly' => true,
+                                    'theme' => 'krajee-uni',
+                                    'filledStar' => '<i class="fas fa-star"></i>',
+                                    'emptyStar' => '<i class="far fa-star"></i>',
+                                    ]
+                                ]);
+                             ?> 
                             <span class="font-weight-bold"><?= $m->name ?></span> <span class="font-weight-lighter"><?= $m->type->name ?></span> 
                             <p class="text-muted mt-3">
                                 <?= $m->short_description ?>

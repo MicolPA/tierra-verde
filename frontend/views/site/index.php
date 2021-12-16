@@ -1,5 +1,6 @@
 <?php
 
+use kartik\rating\StarRating;
 $this->title = 'Mi tierra verde';
 
 ?>
@@ -18,7 +19,7 @@ $this->title = 'Mi tierra verde';
 
             <p>
                 <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative mr-3 btn-sm" href="/frontend/web/tourist-packages">VIEW TOURS</a>
-                <button type="button" class="btn btn-outline-light border-white text-white pr-5 pl-5 font-weight-bold position-relative btn-sm" style="border:4px">VIEW TICKETS</button>
+                <a href="https://www.mitierraverde.com/about-us/" class="btn btn-outline-light border-white text-white pr-5 pl-5 font-weight-bold position-relative btn-sm" style="border:4px">ABOUT US</a>
             </p>  
         </div>
            
@@ -36,41 +37,56 @@ $this->title = 'Mi tierra verde';
                 </div>
 
 
-                <?php for ($i=0;$i<9;$i++): ?>
-                    
+                <?php foreach ($model as $m): ?>
+                        
                     <div class="col-md-4 mb-3 rounded">
-                        <div class="p-2 rounded-top" style="background-image:url(/frontend/web/images/stock-1.jpg);height:250px;background-position:center;background-repeat: no-repeat;background-size:cover;">
-
-                            <div style="height:200px">
+                        
+                        <a class="text-dark text-decoration-none" href="/frontend/web/tourist-packages/view?id=<?= $m->id ?>">
                                 
-                            </div>
-                            <p class="text-right text-white rounded-bottom">
-                                <!-- <span class="h5 font-weight-normal">$</span><span class="h2">60</span> -->
-                            </p>
-                        </div>
-                        <div class="div-gradient pl-2 pr-2">
-                            <p class="h3 font-weight-bold text-white"><i class="modal-icon fa-xs mr-2"></i> <span class="modal-name"></span></p>
-                            <span class="text-white">
-                                <i class="fas fa-church mr-2"></i> <span class="small">City tours</span>
-                            </span>
-                        </div>
+                            <div class="p-2 rounded-top" style="background-image:url(/frontend/web/<?= $m->image_1 ?>);height:250px;background-position:center;background-repeat: no-repeat;background-size:cover;">
 
-                        <div class="bg-white p-2">
-                            <span class="font-weight-bold small">SENNA RIVER</span>
-                            <span class="small">TOUR</span>
-                            <span class="float-right text-muted"><i class="far fa-heart"></i></span>
-                            <p>
-                                <img src="/frontend/web/images/stars.png" alt="hi">
-                            </p>
-                        </div>
+                                <div style="height:200px">
+                                    
+                                </div>
+                                <p class="text-right text-white rounded-bottom">
+                                    <!-- <span class="h5 font-weight-normal">$</span><span class="h2">60</span> -->
+                                </p>
+                            </div>
+                            <div class="div-gradient pl-2 pr-2">
+                                <p class="h3 font-weight-bold text-white"><i class="modal-icon fa-xs mr-2"></i> <span class="modal-name"></span></p>
+                                <span class="text-white">
+                                    <i class="fas fa-church mr-2"></i> <span class="small">City tours</span>
+                                </span>
+                            </div>
+
+                            <div class="bg-white p-2">
+                                <span class="font-weight-bold small">SENNA RIVER</span>
+                                <span class="small">TOUR</span>
+                                <a href="/frontend/web/tourist-packages/set-favorite?id"><span class="float-right text-muted"><i class="far fa-heart"></i></span></a>
+                                <p>
+                                    <?= StarRating::widget([
+                                        'name' => 'star_rating--',
+                                        'value' => $m->rating,
+                                        'pluginOptions' => [
+                                            'displayOnly' => true,
+                                            'theme' => 'krajee-uni',
+                                            'filledStar' => '<i class="fas fa-star"></i>',
+                                            'emptyStar' => '<i class="far fa-star"></i>',
+                                            ]
+                                        ]);
+                                     ?> 
+                                </p>
+                            </div>
+
+                        </a>
 
                     </div>
 
-                <?php endfor ?>
+                <?php endforeach ?>
 
                 <div class="col-md-12 text-center mt-5 mb-5">
                     <div>
-                        <a href="/frontend/web/tourist-packages" class="btn btn-success btn-sm pr-5 pl-5 font-weight-bold">VIEW ALL TOURS</a>
+                        <a href="/frontend/web/tourist-packages" class="btn btn-success btn-sm pr-5 pl-5 font-weight-bold">VIEW ALL TOURS (<?= count($model) ?>)</a>
                     </div>
                 </div>
                 

@@ -117,8 +117,9 @@ label[for="inputfile"] {
                             <input type="text" class="form-control text-center font-12 p-0" readonly value="Adultos" style="width: 80px">
                         </td>
                         <?php for ($i=1; $i<12;$i++): ?>
+                            <?php $pack = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $model, 'from' => $i])->one(); ?>
                             <td class="p-0">
-                                <input type="number" name="adults[<?= $i ?>]" class="form-control text-center pr-0 pl-0" placeholder="N/A">
+                                <input type="number" name="adults[<?= $i ?>]" class="form-control text-center pr-0 pl-0" placeholder="N/A" value="<?= $pack['adults_amount'] ?>">
                             </td>    
                         <?php endfor ?>
                         <td class="p-0">
@@ -133,8 +134,9 @@ label[for="inputfile"] {
                             <input type="text" class="form-control text-center font-12 p-0" readonly value="Níños" style="width: 80px">
                         </td>
                         <?php for ($i=1; $i<12;$i++): ?>
+                            <?php $pack = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $model, 'from' => $i])->one(); ?>
                             <td class="p-0">
-                                <input type="number" name="kids[<?= $i ?>]" class="form-control text-center pr-0 pl-0" placeholder="N/A">
+                                <input type="number" name="kids[<?= $i ?>]" class="form-control text-center pr-0 pl-0" placeholder="N/A" value="<?= $pack['kids_amount'] ?>">
                             </td>    
                         <?php endfor ?>
                         <td class="p-0">

@@ -6,6 +6,7 @@ body{
 	background: #f9f9f9;
 }
 
+
 .div-gradient{
     min-height:100px;
     margin-top: -100px;
@@ -20,7 +21,7 @@ body{
 }
 
 .btn-success, .bg-success{
-   background: #60bf00 !important;
+   background: #0ea32d !important;
 }
 
 .text-warning{
@@ -28,11 +29,23 @@ body{
 }
 
 .text-success{
-   color: #60bf00 !important;
+   color: #0ea32d !important;
+}
+
+.font-10{
+   font-size: 12px !important;
 }
 
 .font-12{
    font-size: 12px !important;
+}
+
+.font-14{
+   font-size: 14px !important;
+}
+
+.font-20{
+   font-size: 20px !important;
 }
 
 .font-weight-bold-2{
@@ -44,10 +57,10 @@ body{
 }
 
 .btn-outline-light:hover{
-   background: #60bf00;
+   background: #0ea32d;
 }
 
-.stars {
+/*.stars {
    width: 420px;
    height: 80px;
    text-align: center;
@@ -57,9 +70,10 @@ body{
    transform: translate(-50%, -50%);
    -webkit-transform: translate(-50%, -50%);
    -ms-transform: translate(-50%, -50%);
-}
+}*/
 
-.stars .star {
+/*.stars .star {*/
+/*.stars{
    width: 84px;
    position: absolute;
    top: 0;
@@ -67,7 +81,7 @@ body{
    color: #FFFD5A;
    text-shadow: 1px 2px 4px #C3C11C;
    padding: 0 5px;
-}
+}*/
 
 .stars-ghost {
    width: 0px;
@@ -78,7 +92,7 @@ body{
    z-index: 2;
 }
 
-.stars .star:nth-child(1) {
+/*.stars .star:nth-child(1) {
    left: 0;
 }
 
@@ -97,7 +111,7 @@ body{
 .stars .star:nth-child(5) {
    left: 336px;
 }
-
+*/
 
 .table-striped tbody tr:nth-of-type(odd){
    background: transparent !important;
@@ -188,3 +202,38 @@ form{
 }
 
 
+/** RATING STARTS */
+
+.rating-md{
+   font-size: 14px;
+}
+
+.rating-stars .filled-stars{
+   color: #FF9900 ;
+}
+
+
+.star{
+   font-size: 16px !important;
+}
+
+.caption{
+   display: none !important;
+}
+
+.book-content{
+   border-left: 2px solid #D8D8D8;
+
+}
+
+.book-numbers{
+   margin-left: -2rem;
+   padding-top: 0.6rem;
+   padding-bottom: 0.6rem;
+}
+
+.book-detail{
+   width: 100%;
+   padding-left: 2rem;
+   display: inline-block;
+}

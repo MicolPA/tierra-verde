@@ -29,7 +29,7 @@ AppAsset::register($this);
     <nav class="bg-transparent " style="border-bottom: 0.1px solid #fff;">
         <div class="container d-flex flex-wrap">
           <ul class="nav me-auto">
-            <li class="nav-item"><a href="/" class="nav-link text-white font-weight-bold px-2 active" aria-current="page">0045 043204434</a></li>
+            <li class="nav-item"><a href="/" class="nav-link text-white font-weight-bold px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a></li>
           </ul>
           <ul class="nav">
             <!-- <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li> -->
@@ -46,7 +46,7 @@ AppAsset::register($this);
       </a>
       <div class="col-12 col-lg-auto mb-3 mb-lg-0">
         <ul class="nav me-auto">
-            <li class="nav-item"><a href="#" class="nav-link text-white px-2 active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/" class="nav-link text-white px-2 active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link text-white px-2">About us</a></li>
             <li class="nav-item"><a href="#" class="nav-link text-white px-2">DMC</a></li>
             <li class="nav-item"><a href="#" class="nav-link text-white px-2">Other Service</a></li>
@@ -60,13 +60,17 @@ AppAsset::register($this);
     <div class="container">
         <ul class="navbar-nav">
           <div class="row">
-            <div class="col-md-10">
-            <a href="#" class="nav-link text-white font-weight-normal px-2 active" aria-current="page">0045 043204434</a>
+            <div class="col-md-9">
+            <a href="#" class="nav-link text-white font-weight-normal px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a>
               
             </div>
-            <div class="col-md-2">
-            <a href="#" class="nav-link text-white font-weight-normal px-2" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
-              
+            <div class="col-md-3">
+              <a href="#" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
+              <?php if (!isset(Yii::$app->user->identity->id)): ?>
+                <a href="/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
+              <?php else: ?>
+                  <a href="/frontend/web/user/profile" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-user mr-2"></i> Profile</a>
+              <?php endif ?>
             </div>
           </div>
         </ul>
@@ -79,7 +83,7 @@ AppAsset::register($this);
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-transparent" style="z-index:1">
   <div class="container">
     
-    <a class="navbar-brand" href="/"><img src="/frontend/web/images/logo-white.png" width='180px'></a>
+    <a class="navbar-brand" href="/"><img src="/frontend/web/images/logo-white.png" width='100px'></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -89,16 +93,16 @@ AppAsset::register($this);
       </ul>
       <ul class="navbar-nav float-right">
             <li class="nav-item mr-3">
-              <a class="nav-link active font-weight-light" href="#">Home</a>
+              <a class="nav-link active font-weight-light" href="/">Home</a>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link active font-weight-light" href="#">About us</a>
+              <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/about-us/">About us</a>
             </li>
             <li class="nav-item mr-3">
               <a class="nav-link active font-weight-light" href="#">DMC</a>
             </li>
            <li class="nav-item mr-3 dropdown">
-              <a class="nav-link dropdown-toggle active font-weight-light" href="#" id="dropdown07" data-toggle="dropdown" aria-expanded="false">Other Service</a>
+              <a class="nav-link dropdown-toggle active font-weight-light" href="#" id="dropdown07" data-toggle="dropdown" aria-expanded="false">Other Services</a>
               <div class="dropdown-menu" aria-labelledby="dropdown07">
                 <a class="dropdown-item" href="#">Private tours</a>
                 <a class="dropdown-item" href="#">University programs</a>
@@ -124,10 +128,63 @@ AppAsset::register($this);
     </div>
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
+<footer class=" mt-auto pt-5 pb-5 text-muted bg-dark">
     <div class="container">
-        <p class="float-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
+        <div class="row text-white">
+          <div class="col-md-4">
+            <p class="h6 font-weight-normal mb-4">NEED HELP?</p>
+            <p class="mb-0">
+              <p class="mb-3">
+                <i class="fas fa-phone-alt mr-2 font-20"></i> <span class="h5 font-weight-light">+45 423 44599</span>
+              </p>
+              <p class="mb-3">
+                <i class="far fa-envelope mr-2 font-20"></i> <span class="h5 font-weight-light">help@citytours.com</span>
+              </p>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p class="h6 font-weight-normal mb-2">ABOUT</p>
+            <p class="mb-0 14 font-weight-light">
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>Who we are</span></a>
+              </p>
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>Blog</span></a>
+              </p>
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>Help - Faq</span></a>
+              </p>
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>Terms and conditions</span></a>
+              </p>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p class="h6 font-weight-normal mb-2">DISCOVER</p>
+            <p class="mb-0 14 font-weight-light">
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>City tours</span></a>
+              </p>
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>Museum tours</span></a>
+              </p>
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>Historic building</span></a>
+              </p>
+              <p class="mb-0 font-weight-light">
+                <a href="#" class="text-white"><span>Walking tours</span></a>
+              </p>
+            </p>
+          </div>
+          <div class="col-md-12 text-center text-white">
+            <p class="float-left">&copy; </p>
+          </div>
+        </div>
+
+        <div class="row">
+          
+        </div>
+        
     </div>
 </footer>
 
