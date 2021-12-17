@@ -79,32 +79,78 @@ class TouristPackagesController extends Controller
 
     public function actionBook(){
 
+        $price = '';
         $this->layout = 'main';
         $post = $this->request->post();
+        $get = $this->request->get();
         $model = new Clients();
         
-
         if ($post) {
             $model->package_id = $post['package'];
             $price = $post['adults_amount'] + $post['children_amount'];
 
             if (isset(Yii::$app->user->identity->id)) {
+                $package = TouristPackages::findOne($post['package']);
                 $model->first_name = Yii::$app->user->identity->first_name;
                 $model->last_name = Yii::$app->user->identity->last_name;
                 $model->email = Yii::$app->user->identity->email;
+                $model->cellphone = Yii::$app->user->identity->phone;
+                $model->package_id = $post['package'];
+                $model->type_id = $package['type_id'];
+                $model->location_id = $package['location_id'];
+                $model->pick_up_location_id = $package['pick_up_location_id'];
+                $model->user_id = Yii::$app->user->identity->id;
+                $model->kid = 0;
+                // $model->save();
             }else{
                 return $this->redirect(['/site/login', 'url' => "/tourist-packages/view?id=".$post['package']]);
             }
 
-            return $this->render('book', [
+
+            return $this->render('book-step1', [
                 'post' => $post,
                 'model' => $model,
                 'price' => $price,
             ]);
-
         }
 
+        if ($model->load($get)) {
+            // print_r($get);
+            $price = $get['price'];
+            // echo $price;
+            // exit;
+            $model->created_at = date("Y-m-d H:i:s");
+            $model->updated_at = date("Y-m-d H:i:s");
+            if (!$model->save()) {
+                print_r($model->errors);
+                exit;
+            }
+            return $this->redirect(['checkout', 'client_id' => $model['id'], 'price' => $price, 'adults_count' => $get['adults_count'], 'children_count' => $get['children_count']]);
+        }else{
+            echo "here";
+        }
+
+    }
+
+
+    public function actionCheckout($client_id, $price, $adults_count, $children_count){
+
+        $this->layout = 'main';
+        $post = $this->request->post();
+        $model = Clients::findOne($client_id);
         
+
+        if ($model) {
+
+            return $this->render('book', [
+                'model' => $model,
+                'price' => $price,
+                'adults_count' => $adults_count,
+                'children_count' => $children_count,
+            ]);
+        }else{
+            return $this->redirect(Yii::$app->request->referrer); 
+        }
     }
 
 
@@ -142,6 +188,23 @@ class TouristPackagesController extends Controller
         return \yii\helpers\Json::encode($model);
 
 
+    }
+
+
+    function actionPaymentSuccess($id){
+
+        $this->layout = 'main';
+        $transaccion = \frontend\models\TransactionDetails::findOne($id);
+        $model = \frontend\models\TouristPackages::findOne($transaccion['package_id']);
+
+        // if ($model->email_notification == 0) {
+        //     $this->sendEmailNotificacion($model, $transaccion);
+        // }
+
+        return $this->render('payment-success', [
+            'model' => $model,
+            'transaccion' => $transaccion,
+        ]);
     }
 
     /**

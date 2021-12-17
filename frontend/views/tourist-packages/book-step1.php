@@ -18,7 +18,7 @@ $model->id = 1;
    </div>
 </div>
 
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(['method' => 'GET']); ?>
 <div class="container">
    
    <div class="row mb-4">
@@ -37,17 +37,29 @@ $model->id = 1;
 
                   <div class="row">
                      <div class="col-md-6">
-                        <?= $form->field($model, 'first_name')->textInput(['readonly' => true]) ?>
+                        <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
                      </div>
                      <div class="col-md-6">
-                        <?= $form->field($model, 'last_name')->textInput(['readonly' => true]) ?>
+                        <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
                      </div>
                      <div class="col-md-6">
-                        <?= $form->field($model, 'cellphone')->textInput(['readonly' => true]) ?>
+                        <?= $form->field($model, 'cellphone')->textInput(['maxlength' => true])->label("Phone") ?>
                      </div>
                      <div class="col-md-6">
-                        <?= $form->field($model, 'email')->textInput(['readonly' => true]) ?>
+                        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
                      </div>
+
+                     <input type="hidden" name="price" value="<?= $price ?>">
+                     <input type="hidden" name="package" value="<?= $post['package'] ?>">
+                     <input type="hidden" name="children_count" value="<?= $post['children_count'] ?>">
+                     <input type="hidden" name="adults_count" value="<?= $post['adults_count'] ?>">
+                     <?= $form->field($model, 'user_id')->hiddenInput(['maxlength' => true])->label(false) ?>
+                     <?= $form->field($model, 'package_id')->hiddenInput(['maxlength' => true])->label(false) ?>
+                     <?= $form->field($model, 'type_id')->hiddenInput(['maxlength' => true])->label(false) ?>
+                     <?= $form->field($model, 'pick_up_location_id')->hiddenInput(['maxlength' => true])->label(false) ?>
+                     <?= $form->field($model, 'location_id')->hiddenInput(['maxlength' => true])->label(false) ?>
+                     <?= $form->field($model, 'kid')->hiddenInput(['maxlength' => true])->label(false) ?>
+
                   </div>
                </div>
             </div>
@@ -58,11 +70,13 @@ $model->id = 1;
                </div>
                <div class="book-detail">
                   <p class="font-weight-light h3 mb-4">
-                     Payment Information
+                     Payment Information <input type="submit" value="NEXT" class="btn btn-success ml-2 btn-sm">
                   </p>
 
                   <div class="col-md-12"  id="smart-button-container">
-                     <div id="paypal-button-container"></div>
+                     <div>
+                        
+                     </div>
                   </div>
                </div>
             </div>
@@ -78,7 +92,7 @@ $model->id = 1;
                   <label>Adults</label>
                 </div>
                 <div class="col-md-6 text-right">
-                  <label class="adults_amount"><?= $adults_count ?></label>
+                  <label class="adults_amount"><?= $post['adults_count'] ?></label>
                 </div>
               </div>
               <div class="row border-top pt-2 pb-2 w-100">
@@ -86,7 +100,7 @@ $model->id = 1;
                   <label>Children</label>
                 </div>
                 <div class="col-md-6 text-right">
-                  <label class="adults_amount"><?= $children_count ?></label>
+                  <label class="adults_amount"><?= $post['children_count'] ?></label>
                 </div>
               </div>
                <div class="row border-top pt-2 pb-2 w-100 text-success">
@@ -116,63 +130,3 @@ $model->id = 1;
 </div>
 <?php ActiveForm::end(); ?>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AdRkZ7gVMeRR-QGPq55-0v3XNgvuUfv2W52mSOAWRzjXIcxq6WH0XFFn8bWdwyGMWXDHJG_n0SBGjbfF&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
-  <script>
-    function initPayPalButton() {
-      paypal.Buttons({
-        style: {
-          shape: 'rect',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'buynow',
-          
-        },
-
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{"description":"DOCUMENTO DEBIDA DILIGENCIA","amount":{"currency_code":"USD","value":<?= $price ?>}}]
-          });
-        },
-
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-
-            $.ajax({
-              url: "/frontend/web/tourist-packages/save-transaction",
-              type: 'GET',
-              dataType: 'json',
-              data: {
-                  data: details,
-                  payer: details.payer,
-                  transactions: details.transactions,
-                  package_id: <?= $model['package_id'] ?>,
-                  amount: <?= $price ?>,
-                  _csrf: '<?=Yii::$app->request->getCsrfToken()?>'
-              },
-               success: function (data) {
-                  console.log(data);
-                  console.log('success');
-                  window.location = '/frontend/web/tourist-packages/payment-success?id='+<?= $model->id ?>;
-               }, error: function (xhr, ajaxOptions, thrownError){
-                  console.log(data);
-                  swal ( "Error" ,  "El pago no se ha podido completar correctamente" ,  "error");
-                  console.log(thrownError);
-                  console.log(xhr);
-                  console.log(ajaxOptions);
-              }
-          });
-
-            console.log(details);
-            // alert('Transaction completed by ' + details.payer.name.given_name + '!');
-          });
-        },
-
-        onError: function(err) {
-          swal ( "Error" ,  "El pago no se ha podido completar correctamente" ,  "error");
-          // window.location = '/frontend/web/site/payment-fail?id='+<?= $model->id ?>;
-          console.log(err);
-        }
-      }).render('#paypal-button-container');
-    }
-    initPayPalButton();
-  </script>

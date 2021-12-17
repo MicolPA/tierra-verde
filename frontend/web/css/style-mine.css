@@ -237,3 +237,11 @@ form{
    padding-left: 2rem;
    display: inline-block;
 }
+
+.border-top-2{
+   border-top: 1px solid #ccc;
+}
+
+.border-bottom-2{
+   border-bottom: 1px solid #ccc;
+}
