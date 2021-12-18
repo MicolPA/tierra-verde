@@ -6,7 +6,7 @@ $model->id = 1;
 
  ?>
 
-<div class="jumbotron mb-0 text-center bg-transparent bg-image position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/stock-4.jpg);">
+<div class="jumbotron mb-0 text-center bg-transparent bg-image position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/stock-4.jpg);">
     <div class="align-middle h-100" style="padding-top: 10rem;">
        <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">PLACE YOUR ORDER</h1>
         <p class="lead text-white mb-4 position-relative">YOUR DETAILS</p>
@@ -17,7 +17,6 @@ $model->id = 1;
       <p class="mb-0">Home > Category > Place your order</p>
    </div>
 </div>
-
 <?php $form = ActiveForm::begin(); ?>
 <div class="container">
    
@@ -138,7 +137,7 @@ $model->id = 1;
           return actions.order.capture().then(function(details) {
 
             $.ajax({
-              url: "/frontend/web/tourist-packages/save-transaction",
+              url: "/tour/frontend/web/tourist-packages/save-transaction",
               type: 'GET',
               dataType: 'json',
               data: {
@@ -152,7 +151,7 @@ $model->id = 1;
                success: function (data) {
                   console.log(data);
                   console.log('success');
-                  window.location = '/frontend/web/tourist-packages/payment-success?id='+<?= $model->id ?>;
+                  window.location = '/tour/frontend/web/tourist-packages/payment-success?id='+<?= $model->id ?>;
                }, error: function (xhr, ajaxOptions, thrownError){
                   console.log(data);
                   swal ( "Error" ,  "El pago no se ha podido completar correctamente" ,  "error");
@@ -169,7 +168,7 @@ $model->id = 1;
 
         onError: function(err) {
           swal ( "Error" ,  "El pago no se ha podido completar correctamente" ,  "error");
-          // window.location = '/frontend/web/site/payment-fail?id='+<?= $model->id ?>;
+          // window.location = '/tour/frontend/web/site/payment-fail?id='+<?= $model->id ?>;
           console.log(err);
         }
       }).render('#paypal-button-container');

@@ -23,7 +23,7 @@ $this->title = $model->name;
     }
 </style>
 
-<div class="jumbotron text-left bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-1" id='fondo' style="background-image:url(/frontend/web/<?= $model->image_1 ?>);">
+<div class="jumbotron text-left bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-1" id='fondo' style="background-image:url(/tour/frontend/web/<?= $model->image_1 ?>);">
     <div class="container">
         <div class="align-middle h-100" style="padding-top: 20rem;">
             <h1 class="display-4 text-uppercase text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">

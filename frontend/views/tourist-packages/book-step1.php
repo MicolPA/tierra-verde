@@ -6,7 +6,7 @@ $model->id = 1;
 
  ?>
 
-<div class="jumbotron mb-0 text-center bg-transparent bg-image position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/stock-4.jpg);">
+<div class="jumbotron mb-0 text-center bg-transparent bg-image position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/stock-4.jpg);">
     <div class="align-middle h-100" style="padding-top: 10rem;">
        <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">PLACE YOUR ORDER</h1>
         <p class="lead text-white mb-4 position-relative">YOUR DETAILS</p>

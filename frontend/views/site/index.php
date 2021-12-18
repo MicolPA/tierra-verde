@@ -10,15 +10,15 @@ $this->title = 'Mi tierra verde';
 }
 </style>
     
-    <div class="jumbotron text-center bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height: 720px;">
-    <!-- <div class="jumbotron text-center bg-transparent bg-image pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/slider-2.jpg);height:720px;background-position:bottom;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;margin-top: -15rem;"> -->
+    <div class="jumbotron text-center bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/slider-2.jpg);height: 720px;">
+    <!-- <div class="jumbotron text-center bg-transparent bg-image pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/slider-2.jpg);height:720px;background-position:bottom;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;margin-top: -15rem;"> -->
         <div class="align-middle h-100" style="padding-top: 15rem;">
            <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">AFFORDABLE TOURS</h1>
 
             <p class="lead text-white mb-4 position-relative">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
 
             <p>
-                <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative mr-3 btn-sm" href="/frontend/web/tourist-packages">VIEW TOURS</a>
+                <a class="btn btn-success pr-5 pl-5 font-weight-bold-2 position-relative mr-3 btn-sm" href="/tour/frontend/web/tourist-packages">VIEW TOURS</a>
                 <a href="https://www.mitierraverde.com/about-us/" class="btn btn-outline-light border-white text-white pr-5 pl-5 font-weight-bold position-relative btn-sm" style="border:4px">ABOUT US</a>
             </p>  
         </div>
@@ -41,9 +41,9 @@ $this->title = 'Mi tierra verde';
                         
                     <div class="col-md-4 mb-3 rounded">
                         
-                        <a class="text-dark text-decoration-none" href="/frontend/web/tourist-packages/view?id=<?= $m->id ?>">
+                        <a class="text-dark text-decoration-none" href="/tour/frontend/web/tourist-packages/view?id=<?= $m->id ?>">
                                 
-                            <div class="p-2 rounded-top" style="background-image:url(/frontend/web/<?= $m->image_1 ?>);height:250px;background-position:center;background-repeat: no-repeat;background-size:cover;">
+                            <div class="p-2 rounded-top" style="background-image:url(/tour/frontend/web/<?= $m->image_1 ?>);height:250px;background-position:center;background-repeat: no-repeat;background-size:cover;">
 
                                 <div style="height:200px">
                                     
@@ -62,7 +62,7 @@ $this->title = 'Mi tierra verde';
                             <div class="bg-white p-2">
                                 <span class="font-weight-bold small">SENNA RIVER</span>
                                 <span class="small">TOUR</span>
-                                <a href="/frontend/web/tourist-packages/set-favorite?id"><span class="float-right text-muted"><i class="far fa-heart"></i></span></a>
+                                <a href="/tour/frontend/web/tourist-packages/set-favorite?id"><span class="float-right text-muted"><i class="far fa-heart"></i></span></a>
                                 <p>
                                     <?= StarRating::widget([
                                         'name' => 'star_rating--',
@@ -86,7 +86,7 @@ $this->title = 'Mi tierra verde';
 
                 <div class="col-md-12 text-center mt-5 mb-5">
                     <div>
-                        <a href="/frontend/web/tourist-packages" class="btn btn-success btn-sm pr-5 pl-5 font-weight-bold">VIEW ALL TOURS (<?= count($model) ?>)</a>
+                        <a href="/tour/frontend/web/tourist-packages" class="btn btn-success btn-sm pr-5 pl-5 font-weight-bold">VIEW ALL TOURS (<?= count($model) ?>)</a>
                     </div>
                 </div>
                 
@@ -132,7 +132,7 @@ $this->title = 'Mi tierra verde';
                 <div class="row mt-5">
                     <?php for ($i=0; $i < 4; $i++): ?>
                         <div class="col-md-3">
-                            <div class="p-2 rounded-top" style="background-image:url(/frontend/web/images/stock-1.jpg);height:170px;background-position:center;background-repeat: no-repeat;background-size:cover;">
+                            <div class="p-2 rounded-top" style="background-image:url(/tour/frontend/web/images/stock-1.jpg);height:170px;background-position:center;background-repeat: no-repeat;background-size:cover;">
                                 
                             </div>
                             <div class="p-2">
@@ -153,7 +153,7 @@ $this->title = 'Mi tierra verde';
         </div>
         <div class="row align-items-center">
             <div class="col-md-12">
-                <div class="jumbotron  text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/stock-3.jpg);height:400px;background-position:center;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;">
+                <div class="jumbotron  text-center bg-transparent pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/stock-3.jpg);height:400px;background-position:center;background-repeat: no-repeat;background-size:cover;position: relative;padding-top: 5rem !important;">
                     <div class="align-middle h-100" style="padding-top: 1rem;">
                        <h1 class="display-2 text-white font-weight-bold-2 position-relative mb-0" style="position: relative">BELONG ANYWHERE</h1>
 

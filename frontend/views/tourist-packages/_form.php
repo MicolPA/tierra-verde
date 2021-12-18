@@ -82,7 +82,7 @@ label[for="inputfile"] {
             <?= $form->field($model, 'description')->widget(EditorClassic::className(),[
                 'clientOptions' => [
                     'language' => 'es',
-                    'uploadUrl' => '/frontend/web/image',    //url for upload files
+                    'uploadUrl' => '/tour/frontend/web/image',    //url for upload files
                     'uploadField' => 'image',   //field name in the upload form
                 ],
                 'options' => [

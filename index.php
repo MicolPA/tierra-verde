@@ -1,3 +1,3 @@
 <script type="text/javascript">
-	window.location = "/frontend/web";
+	window.location = "/tour/frontend/web";
 </script>

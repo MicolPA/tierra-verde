@@ -1,4 +1,4 @@
-<div class="jumbotron text-left bg-transparent bg-image-bottom bg-image position-relative divbackground pt-5 pb-1" id='fondo' style="background-image:url(/frontend/web/images/stock-3.jpg);">
+<div class="jumbotron text-left bg-transparent bg-image-bottom bg-image position-relative divbackground pt-5 pb-1" id='fondo' style="background-image:url(/tour/frontend/web/images/stock-3.jpg);">
     <div class="container">
         <div class="align-middle h-100" style="padding-top: 13rem;">
             <h1 class="display-4 text-uppercase text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">

@@ -41,7 +41,7 @@ AppAsset::register($this);
       <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">
-            <img src="/frontend/web/images/logo-white.png" width='180px'>
+            <img src="/tour/frontend/web/images/logo-white.png" width='180px'>
         </span>
       </a>
       <div class="col-12 col-lg-auto mb-3 mb-lg-0">
@@ -61,15 +61,15 @@ AppAsset::register($this);
         <ul class="navbar-nav">
           <div class="row">
             <div class="col-md-9">
-            <a href="#" class="nav-link text-white font-weight-normal px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a>
+            <a href="#" class="nav-link text-white font-weight-normalb px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a>
               
             </div>
             <div class="col-md-3">
               <a href="#" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
               <?php if (!isset(Yii::$app->user->identity->id)): ?>
-                <a href="/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
+                <a href="/tour/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
               <?php else: ?>
-                  <a href="/frontend/web/user/profile" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-user mr-2"></i> Profile</a>
+                  <a href="/tour/frontend/web/user/profile" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-user mr-2"></i> Profile</a>
               <?php endif ?>
             </div>
           </div>
@@ -83,7 +83,7 @@ AppAsset::register($this);
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-transparent" style="z-index:1">
   <div class="container">
     
-    <a class="navbar-brand" href="/"><img src="/frontend/web/images/logo-white.png" width='100px'></a>
+    <a class="navbar-brand" href="/tour"><img src="/tour/frontend/web/images/logo-white.png" width='100px'></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -93,7 +93,7 @@ AppAsset::register($this);
       </ul>
       <ul class="navbar-nav float-right">
             <li class="nav-item mr-3">
-              <a class="nav-link active font-weight-light" href="/">Home</a>
+              <a class="nav-link active font-weight-light" href="/tour">Home</a>
             </li>
             <li class="nav-item mr-3">
               <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/about-us/">About us</a>
@@ -149,7 +149,7 @@ AppAsset::register($this);
                 <a href="#" class="text-white"><span>Who we are</span></a>
               </p>
               <p class="mb-0 font-weight-light">
-                <a href="#" class="text-white"><span>Blog</span></a>
+                <a href="https://www.mitierraverde.com/blog-2/" class="text-white"><span>Blog</span></a>
               </p>
               <p class="mb-0 font-weight-light">
                 <a href="#" class="text-white"><span>Help - Faq</span></a>
