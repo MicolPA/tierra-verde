@@ -27,7 +27,7 @@ class AdminController extends \yii\web\Controller
 
     public function actionCalculatePayment(){
 
-        $post = Yii::$app->request->post();
+        $post = Yii::$app->request->get();
 
         if ($post['count'] < 20) {
 

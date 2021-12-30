@@ -19,7 +19,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?> | Mi Tierra Verde</title>
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -61,11 +61,10 @@ AppAsset::register($this);
         <ul class="navbar-nav">
           <div class="row">
             <div class="col-md-9">
-            <a href="#" class="nav-link text-white font-weight-normalb px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a>
-              
+              <a href="#" class="nav-link text-white font-weight-normalb px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a>
             </div>
             <div class="col-md-3">
-              <a href="#" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
+              <a href="/tour/frontend/web/user/profile?favorite=1" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
               <?php if (!isset(Yii::$app->user->identity->id)): ?>
                 <a href="/tour/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
               <?php else: ?>
@@ -99,7 +98,7 @@ AppAsset::register($this);
               <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/about-us/">About us</a>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link active font-weight-light" href="#">DMC</a>
+              <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/destination-management-company/">DMC</a>
             </li>
            <li class="nav-item mr-3 dropdown">
               <a class="nav-link dropdown-toggle active font-weight-light" href="#" id="dropdown07" data-toggle="dropdown" aria-expanded="false">Other Services</a>
@@ -110,10 +109,10 @@ AppAsset::register($this);
               </div>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link active font-weight-light" href="#">Blog</a>
+              <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/blog">Blog</a>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link active font-weight-light" href="#">Contact us</a>
+              <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/contact-us">Contact us</a>
             </li>
             
       </ul>
@@ -127,6 +126,23 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </main>
+
+<?php if(Yii::$app->session->hasFlash('confirmacion_msg')):?>
+    <?php
+    $msj = Yii::$app->session->getFlash('confirmacion_msg');
+    echo '<script type="text/javascript">';
+    echo "setTimeout(function () { swal('Correcto','$msj','success');";
+    echo '}, 1000);</script>';
+    ?>
+<?php endif; ?>   
+<?php if(Yii::$app->session->hasFlash('error_msg')):?>
+    <?php
+    $msj = Yii::$app->session->getFlash('error_msg');
+    echo '<script type="text/javascript">';
+    echo "setTimeout(function () { swal('Error','$msj','error');";
+    echo '}, 1000);</script>';
+    ?>
+<?php endif; ?>  
 
 <footer class=" mt-auto pt-5 pb-5 text-muted bg-dark">
     <div class="container">

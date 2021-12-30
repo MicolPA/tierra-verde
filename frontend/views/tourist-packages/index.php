@@ -1,10 +1,10 @@
 <?php
 
 use kartik\rating\StarRating;
-$this->title = 'Paquete turístico';
+$this->title = 'Tourist Packages';
 
 ?>
-<div class="jumbotron text-center bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/frontend/web/images/stock-3.jpg);">
+<div class="jumbotron text-center bg-transparent bg-image bg-image-bottom position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/stock-3.jpg);">
     <div class="align-middle h-100" style="padding-top: 15rem;">
        <h1 class="display-4 text-white font-weight-bold-2 position-relative mb-0 mt-5" style="position: relative">TOURIST PACKAGES</h1>
         <p class="lead text-white mb-4 position-relative">CITY TOURS / TOUR TICKETS / TOUR GUIDES</p>
@@ -20,7 +20,7 @@ $this->title = 'Paquete turístico';
             <?php foreach ($dataProvider->query->all() as $m): ?>
                 <div class="row bg-white p-0 mb-3">
                     <div class="col-md-4 p-0">
-                        <div class="w-100 bg-image" style="height:200px;background-image:url('/frontend/web/<?= $m->image_1 ?>')">
+                        <div class="w-100 bg-image" style="height:200px;background-image:url('/tour/frontend/web/<?= $m->image_1 ?>')">
 
                             <div style="height:200px">
                                 
@@ -58,7 +58,7 @@ $this->title = 'Paquete turístico';
                         </p>
 
                         <div class="mt-2">
-                            <a href="/frontend/web/tourist-packages/view?id=<?= $m->id ?>" class="btn btn-success btn-sm float-right">DETAILS </a>
+                            <a href="/tour/frontend/web/tourist-packages/view?id=<?= $m->id ?>" class="btn btn-success btn-sm float-right">DETAILS </a>
                         </div>
                     </div>
                 </div>

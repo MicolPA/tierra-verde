@@ -201,7 +201,7 @@ $class_zonas = $page == 4 ? 'bg-dark text-white' : 'text-dark';
             </a>
           </li>
           <li class="nav-item <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/tour/frontend/web/tourist-packages">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/tour/frontend/web/user">
               <i class="fas fa-users mr-3"></i>
               <span class="menu-title">Usuarios</span>
             </a>

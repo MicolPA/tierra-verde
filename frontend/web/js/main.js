@@ -29,8 +29,8 @@ function calculatePricing(count, type, last_c){
 	package = $(".package").val();
 
 	$.ajax({
-        url: "/frontend/web/admin/calculate-payment",
-        type: 'post',
+        url: "/tour/frontend/web/admin/calculate-payment",
+        type: 'get',
         dataType: 'json',
         data: {
             package: package,

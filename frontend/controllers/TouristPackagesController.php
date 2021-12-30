@@ -342,6 +342,44 @@ class TouristPackagesController extends Controller
 
     }
 
+    public function actionSetFavorite($id)
+    {
+        if (isset(Yii::$app->user->identity->id)) {
+            
+            $model = \frontend\models\Favorite::find()->where(['package_id' => $id, 'user_id' => Yii::$app->user->identity->id])->one();
+
+            if (!$model) {
+                $model = new \frontend\models\Favorite();
+                $model->package_id = $id;
+                $model->user_id = Yii::$app->user->identity->id;
+                $model->date = date("Y-m-d H:i:s");
+                $model->save();
+            }
+            Yii::$app->session->setFlash('confirmacion_msg', "Saved successfully");
+            return $this->redirect(Yii::$app->request->referrer); 
+
+        }else{
+            return $this->redirect(['/site/login', 'url' => "/tourist-packages/set-favorite?id=".$id]);
+        }
+    }
+
+    public function actionDeleteFavorite($id)
+    {
+        if (isset(Yii::$app->user->identity->id)) {
+            
+            $model = \frontend\models\Favorite::findOne($id);
+
+            if ($model) {
+                $model->delete();
+            }
+            Yii::$app->session->setFlash('confirmacion_msg', "Deleted successfully");
+            return $this->redirect(Yii::$app->request->referrer); 
+
+        }else{
+            return $this->redirect(['/site/login', 'url' => "/tourist-packages/delete-favorite?id=".$id]);
+        }
+    }
+
     /**
      * Updates an existing TouristPackages model.
      * If update is successful, the browser will be redirected to the 'view' page.

@@ -1,8 +1,9 @@
 <?php
 
 use kartik\rating\StarRating;
-$this->title = 'Mi tierra verde';
+$this->title = 'Home';
 
+$user_id = isset(Yii::$app->user->identity->id) ? Yii::$app->user->identity->id : null;
 ?>
 
 <style>
@@ -60,9 +61,14 @@ $this->title = 'Mi tierra verde';
                             </div>
 
                             <div class="bg-white p-2">
-                                <span class="font-weight-bold small">SENNA RIVER</span>
-                                <span class="small">TOUR</span>
-                                <a href="/tour/frontend/web/tourist-packages/set-favorite?id"><span class="float-right text-muted"><i class="far fa-heart"></i></span></a>
+                                <span class="font-weight-bold small"><?= mb_strtoupper($m->name) ?></span>
+                                <span class="small"><?= mb_strtoupper($m->type->name) ?></span>
+                                <?php $favorite = \frontend\models\Favorite::find()->where(['package_id' => $m->id, 'user_id' => $user_id])->one(); ?>
+                                <?php if ($favorite and $user_id): ?>
+                                    <a href="/tour/frontend/web/tourist-packages/delete-favorite?id=<?= $favorite->id ?>"><span class="float-right text-muted"><i class="fas fa-heart text-danger"></i></span></a>
+                                <?php else: ?>
+                                    <a href="/tour/frontend/web/tourist-packages/set-favorite?id=<?= $m->id ?>"><span class="float-right text-muted"><i class="far fa-heart"></i></span></a>
+                                <?php endif ?>
                                 <p>
                                     <?= StarRating::widget([
                                         'name' => 'star_rating--',
