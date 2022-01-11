@@ -41,7 +41,7 @@ $class_zonas = $page == 4 ? 'bg-dark text-white' : 'text-dark';
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex justify-content-center">
           <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
-            <a class="navbar-brand brand-logo" href="/"><img class="ml-5" src="/tour/frontend/web/images/logo.png" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="/"><img class="" src="/tour/frontend/web/images/logo.png" alt="logo" style="width:60px" /></a>
             <a class="navbar-brand brand-logo-mini" href="/"><img src="/tour/frontend/web/images/logo.png" alt="logo" style="height: 30px" /></a>
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-sort-variant"></span>
@@ -206,12 +206,18 @@ $class_zonas = $page == 4 ? 'bg-dark text-white' : 'text-dark';
               <span class="menu-title">Usuarios</span>
             </a>
           </li>
-          <li class="nav-item <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
-            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/tour/frontend/web/tourist-packages">
+          <li class="nav-item <?= strpos(Yii::$app->request->url, 'transaction') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
+            <a class="nav-link pt-4 pb-4 <?= strpos(Yii::$app->request->url, 'transaction') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/tour/frontend/web/transaction-details">
+              <i class="fas fa-dollar-sign mr-3"></i>
+              <span class="menu-title">Transacciones</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item <?//= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>">
+            <a class="nav-link pt-4 pb-4 <?//= strpos(Yii::$app->request->url, 'users') ? 'bg-dark text-white' : 'text-dark text-secondary font-weight-normal' ?>" href="/tour/frontend/web/tourist-packages">
               <i class="fas fa-chart-pie mr-3"></i>
               <span class="menu-title">Reportes</span>
             </a>
-          </li>
+          </li> -->
           
         </ul>
       </nav>

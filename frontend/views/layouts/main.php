@@ -64,10 +64,11 @@ AppAsset::register($this);
               <a href="#" class="nav-link text-white font-weight-normalb px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a>
             </div>
             <div class="col-md-3">
-              <a href="/tour/frontend/web/user/profile?favorite=1" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
               <?php if (!isset(Yii::$app->user->identity->id)): ?>
+                <a href="/tour/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
                 <a href="/tour/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
               <?php else: ?>
+                <a href="/tour/frontend/web/user/profile?favorite=1" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
                   <a href="/tour/frontend/web/user/profile" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-user mr-2"></i> Profile</a>
               <?php endif ?>
             </div>
@@ -112,7 +113,7 @@ AppAsset::register($this);
               <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/blog">Blog</a>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/contact-us">Contact us</a>
+              <a class="nav-link active font-weight-light" href="https://www.mitierraverde.com/contact">Contact us</a>
             </li>
             
       </ul>
