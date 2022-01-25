@@ -68,6 +68,7 @@ AppAsset::register($this);
                 <a href="/tour/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
                 <a href="/tour/frontend/web/site/login" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-lock mr-2"></i> Sign in</a>
               <?php else: ?>
+                  <a href="/tour/frontend/web/site/logout" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
                 <a href="/tour/frontend/web/user/profile?favorite=1" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-heart mr-2"></i> Wishlist</a>
                   <a href="/tour/frontend/web/user/profile" class="nav-link text-white font-weight-normal px-2 float-right" aria-current="page"><i class="fas fa-user mr-2"></i> Profile</a>
               <?php endif ?>
