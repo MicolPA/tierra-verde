@@ -37,7 +37,7 @@ class TouristPackages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'type_id', 'location_id', 'age_restricted', 'pick_up_location_id', 'created_at', 'updated_at'], 'required'],
+            [['name', 'type_id', 'location_id', 'pick_up_location_id', 'created_at', 'updated_at'], 'required'],
             [['type_id', 'location_id', 'kids', 'age_restricted'], 'integer'],
             [['created_at', 'updated_at', 'short_description', 'description', 'kids_age_min', 'kids_age_max', 'max_people', 'sub_type_id', 'rating'], 'safe'],
             [['pick_up_location_id'], 'string', 'max' => 255],

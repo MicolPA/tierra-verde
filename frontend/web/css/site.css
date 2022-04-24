@@ -322,3 +322,12 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+
+.navbar .nav-link:hover{
+    border-bottom: 2px solid orange;
+}
+
+.navbar .active-o{
+    border-bottom: 2px solid orange !important;
+}

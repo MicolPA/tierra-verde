@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-$this->title = 'Tipos de paquetes';
+$this->title = 'Paquetes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="location-index">
@@ -22,9 +22,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
-                        'name',
-                        'created_at',
-                        'updated_at',
+                        // 'id',
+                        'state',
+                        'payer_first_name',
+                        'payer_last_name',
+                        'payer_id',
+                        'payer_email:email',
+                        //'country_code',
+                        //'invoice_number',
+                        //'amount',
+                        //'token',
+                        //'procesado',
+                        //'package_id',
+                        //'client_id',
+                        //'adults_count',
+                        //'children_count',
+                        //'total_amount',
+                        //'date',
 
                         ['class' => 'yii\grid\ActionColumn'],
                     ],

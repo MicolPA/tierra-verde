@@ -39,17 +39,19 @@ class TouristPackagesController extends Controller
      * Lists all TouristPackages models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($type=null)
     {
         $this->layout = 'main';
         $searchModel = new TouristPackagesSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = $searchModel->search($this->request->queryParams, $type);
 
         return $this->render('index', [
+            'type' => $type,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
+
     public function actionList()
     {
         $searchModel = new TouristPackagesSearch();
@@ -89,6 +91,10 @@ class TouristPackagesController extends Controller
             $model->package_id = $post['package'];
             $price = $post['adults_amount'] + $post['children_amount'];
 
+            if ($price <= 0) {
+                return $this->redirect(Yii::$app->request->referrer); 
+            }
+
             if (isset(Yii::$app->user->identity->id)) {
                 $package = TouristPackages::findOne($post['package']);
                 $model->first_name = Yii::$app->user->identity->first_name;
@@ -101,7 +107,7 @@ class TouristPackagesController extends Controller
                 $model->pick_up_location_id = $package['pick_up_location_id'];
                 $model->user_id = Yii::$app->user->identity->id;
                 $model->kid = 0;
-                // $model->save();
+                $model->save();
             }else{
                 return $this->redirect(['/site/login', 'url' => "/tourist-packages/view?id=".$post['package']]);
             }
@@ -115,12 +121,14 @@ class TouristPackagesController extends Controller
         }
 
         if ($model->load($get)) {
+
             // print_r($get);
             $price = $get['price'];
             // echo $price;
             // exit;
             $model->created_at = date("Y-m-d H:i:s");
             $model->updated_at = date("Y-m-d H:i:s");
+            $model->user_id = Yii::$app->user->identity->id;
             if (!$model->save()) {
                 print_r($model->errors);
                 exit;
@@ -174,8 +182,10 @@ class TouristPackagesController extends Controller
         // $model->amount = $data['transactions']['amount']['total'];
 
         $model->package_id = $get['package_id'];
-        // $model->client_id = $get['client_id'];
-        $model->client_id = 1;
+        $model->client_id = $get['client_id'];
+        $model->adults_count = $get['adults_count'];
+        $model->children_count = $get['children_count'];
+        // $model->client_id = 1;
         $model->state = $get['data']['status'];
         $model->date = date("Y-m-d H:i:s");
 
@@ -234,7 +244,10 @@ class TouristPackagesController extends Controller
 
                 $model->created_at = date("d-m-Y H:i:s");
                 $model->updated_at = date("d-m-Y H:i:s");
-                $model->save();
+                if (!$model->save()) {
+                    print_r($model->errors);
+                    exit;
+                }
                 $this->savePayment($model->id, $post);
                 return $this->redirect(['list']);
                 // return $this->redirect(['view', 'id' => $model->id]);
@@ -251,38 +264,40 @@ class TouristPackagesController extends Controller
     function savePayment($id, $post){
 
 
-        for ($i=1; $i<12; $i++) {
+        if ($id) {
+            for ($i=1; $i<12; $i++) {
                 
-            if (isset($post['adults'][$i])) {
+                if (isset($post['adults'][$i])) {
 
-                $model = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $id, 'from' => $i])->one();
-                if (!$model) {
+                    $model = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $id, 'from' => $i])->one();
+                    if (!$model) {
 
-                    $model = new \frontend\models\TouristPackagesPayments();
-                    $model->from = $i;
-                    $model->until = $i;
-                }
-                    
-                $model->adults_amount = $post['adults'][$i];
-                if (isset($post['kids'][$i])) {
-                    $model->kids_amount = $post['kids'][$i];
+                        $model = new \frontend\models\TouristPackagesPayments();
+                        $model->from = $i;
+                        $model->until = $i;
+                    }
+                        
+                    $model->adults_amount = $post['adults'][$i];
+                    if (isset($post['kids'][$i])) {
+                        $model->kids_amount = $post['kids'][$i];
+                    }
+
+                    $model->tourist_packages_id = $id;
+                    $model->created_at = date("d-m-Y H:i:s");
+                    $model->updated_at = date("d-m-Y H:i:s");
+                    if (!$model->save()) {
+                        print_r($model->errors);
+                        exit;
+                    }
                 }
 
-                $model->tourist_packages_id = $id;
-                $model->created_at = date("d-m-Y H:i:s");
-                $model->updated_at = date("d-m-Y H:i:s");
-                if (!$model->save()) {
-                    print_r($model->errors);
-                    exit;
-                }
+                
             }
 
-            
+            $this->savePaymentRange($post, $id, 11, 15);
+            $this->savePaymentRange($post, $id, 16, 20);
+            $this->savePaymentRange($post, $id, 20, 20);
         }
-
-        $this->savePaymentRange($post, $id, 11, 15);
-        $this->savePaymentRange($post, $id, 16, 20);
-        $this->savePaymentRange($post, $id, 20, 20);
            
 
     }
@@ -318,6 +333,8 @@ class TouristPackagesController extends Controller
 
         $field = "image_$i";
         $imagen = $model[$field];
+
+        $tipo = str_replace(" ", '-', trim($tipo));
         
         $path = "images/".$tipo;
 
@@ -425,7 +442,7 @@ class TouristPackagesController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['list']);
     }
 
     /**

@@ -20,6 +20,9 @@ use Yii;
  * @property int|null $procesado
  * @property int|null $package_id
  * @property int|null $client_id
+ * @property int|null $adults_count
+ * @property int|null $children_count
+ * @property int|null $total_amount
  * @property string|null $date
  */
 class TransactionDetails extends \yii\db\ActiveRecord
@@ -38,7 +41,7 @@ class TransactionDetails extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['amount', 'procesado', 'package_id', 'client_id'], 'integer'],
+            [['amount', 'procesado', 'package_id', 'client_id', 'adults_count', 'children_count', 'total_amount'], 'integer'],
             [['date'], 'safe'],
             [['state', 'payer_first_name', 'payer_last_name', 'payer_id', 'payer_email', 'country_code', 'invoice_number', 'token'], 'string', 'max' => 255],
         ];
@@ -51,19 +54,22 @@ class TransactionDetails extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'state' => 'State',
-            'payer_first_name' => 'Payer First Name',
-            'payer_last_name' => 'Payer Last Name',
+            'state' => 'Status',
+            'payer_first_name' => 'Nombre',
+            'payer_last_name' => 'Apellido',
             'payer_id' => 'Payer ID',
             'payer_email' => 'Payer Email',
             'country_code' => 'Country Code',
             'invoice_number' => 'Invoice Number',
-            'amount' => 'Amount',
+            'amount' => 'Monto total',
             'token' => 'Token',
             'procesado' => 'Procesado',
             'package_id' => 'Package ID',
             'client_id' => 'Client ID',
-            'date' => 'Date',
+            'adults_count' => 'Adults',
+            'children_count' => 'Children',
+            'total_amount' => 'Total Amount',
+            'date' => 'Fecha',
         ];
     }
 }

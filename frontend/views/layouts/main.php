@@ -61,7 +61,7 @@ AppAsset::register($this);
         <ul class="navbar-nav">
           <div class="row">
             <div class="col-md-9">
-              <a href="#" class="nav-link text-white font-weight-normalb px-2 active" aria-current="page"><?= Yii::$app->params['phone'] ?></a>
+              <a href="#" class="nav-link text-white font-weight-normalb px-2 active" aria-current="page"><i class="fas fa-envelope mr-1"></i> <?= Yii::$app->params['email'] ?> <i class="fas fa-map-marker-alt ml-2"></i> Domican Republic</a>
             </div>
             <div class="col-md-3">
               <?php if (!isset(Yii::$app->user->identity->id)): ?>

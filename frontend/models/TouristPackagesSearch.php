@@ -19,7 +19,7 @@ class TouristPackagesSearch extends TouristPackages
     {
         return [
             [['id', 'name', 'type_id', 'location_id', 'kids', 'age_restricted'], 'integer'],
-            [['pick_up_location_id', 'created_at', 'updated_at'], 'safe'],
+            [['pick_up_location_id', 'created_at', 'updated_at', 'type_id'], 'safe'],
         ];
     }
 
@@ -39,7 +39,7 @@ class TouristPackagesSearch extends TouristPackages
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $type_id=null)
     {
         $get = Yii::$app->request->get();
         $query = TouristPackages::find()->orderBy(['id' => SORT_DESC]);
@@ -54,6 +54,10 @@ class TouristPackagesSearch extends TouristPackages
             if ($get['star_rating']) {
                 $this->rating = $get['star_rating'];
             }
+        }
+
+        if ($type_id) {
+            $this->type_id = $type_id;
         }
 
         // add conditions that should always apply here
@@ -80,7 +84,6 @@ class TouristPackagesSearch extends TouristPackages
             'kids' => $this->kids,
             'sub_type_id' => $this->sub_type_id,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'pick_up_location_id', $this->pick_up_location_id]);

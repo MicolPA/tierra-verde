@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\PackagesType */
+/* @var $model frontend\models\TransactionDetails */
 
-$this->title = 'Registrar tipo de paquete';
-$this->params['breadcrumbs'][] = ['label' => 'Packages Types', 'url' => ['index']];
+$this->title = 'Create Transaction Details';
+$this->params['breadcrumbs'][] = ['label' => 'Transaction Details', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="packages-type-create">
+<div class="transaction-details-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

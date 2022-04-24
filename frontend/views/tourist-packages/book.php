@@ -2,9 +2,11 @@
 
 use yii\widgets\ActiveForm;
 
-$model->id = 1;
+$this->title = "Booking";
 
- ?>
+$package = \frontend\models\TouristPackages::findOne($model->package_id);
+
+?>
 
 <div class="jumbotron mb-0 text-center bg-transparent bg-image position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/stock-4.jpg);">
     <div class="align-middle h-100" style="padding-top: 10rem;">
@@ -14,14 +16,13 @@ $model->id = 1;
 </div>
 <div class="bg-white pt-2 pb-2 mb-5">
    <div class="container">
-      <p class="mb-0">Home > Category > Place your order</p>
+      <p class="mb-0"><i class="fas fa-map-marker-alt"></i><a href="/tour" class="text-secondary ml-1">Home</a> > <a href="#" class="text-secondary ml-1"><?= isset($package->type->name) ? $package->type->name : ''  ?></a> > Place your order</p>
    </div>
 </div>
 <?php $form = ActiveForm::begin(); ?>
 <div class="container">
    
    <div class="row mb-4">
-      
 
       <div class="col-md-8">
          <div class="row book-content">
@@ -145,7 +146,10 @@ $model->id = 1;
                   payer: details.payer,
                   transactions: details.transactions,
                   package_id: <?= $model['package_id'] ?>,
+                  client_id: <?= $model['id'] ?>,
                   amount: <?= $price ?>,
+                  adults_count: <?= $adults_count ?>,
+                  children_count: <?= $children_count ?>,
                   _csrf: '<?=Yii::$app->request->getCsrfToken()?>'
               },
                success: function (data) {

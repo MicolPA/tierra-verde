@@ -118,7 +118,7 @@ label[for="inputfile"] {
                         </td>
                         <?php for ($i=1; $i<12;$i++): ?>
                             <?php 
-                            $pack = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $model, 'from' => $i])->one();
+                            $pack = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $model['id'], 'from' => $i])->one();
                                 $total = $pack ? $pack['adults_amount'] : null;
                              ?>
                             <td class="p-0">
@@ -138,7 +138,7 @@ label[for="inputfile"] {
                         </td>
                         <?php for ($i=1; $i<12;$i++): ?>
                             <?php 
-                                $pack = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $model, 'from' => $i])->one();
+                                $pack = \frontend\models\TouristPackagesPayments::find()->where(['tourist_packages_id' => $model['id'], 'from' => $i])->one();
                                 $total = $pack ? $pack['kids_amount'] : null;
                             ?>
                             <td class="p-0">

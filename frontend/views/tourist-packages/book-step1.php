@@ -2,9 +2,8 @@
 
 use yii\widgets\ActiveForm;
 
-$model->id = 1;
-
- ?>
+$package = \frontend\models\TouristPackages::findOne($model->package_id);
+?>
 
 <div class="jumbotron mb-0 text-center bg-transparent bg-image position-relative divbackground pt-5 pb-5" id='fondo' style="background-image:url(/tour/frontend/web/images/stock-4.jpg);">
     <div class="align-middle h-100" style="padding-top: 10rem;">
@@ -14,7 +13,7 @@ $model->id = 1;
 </div>
 <div class="bg-white pt-2 pb-2 mb-5">
    <div class="container">
-      <p class="mb-0">Home > Category > Place your order</p>
+      <p class="mb-0"><i class="fas fa-map-marker-alt"></i><a href="/tour" class="text-secondary ml-1">Home</a> > <a href="#" class="text-secondary ml-1"><?= isset($package->type->name) ? $package->type->name : ''  ?></a> > Place your order</p>
    </div>
 </div>
 
@@ -53,13 +52,12 @@ $model->id = 1;
                      <input type="hidden" name="package" value="<?= $post['package'] ?>">
                      <input type="hidden" name="children_count" value="<?= $post['children_count'] ?>">
                      <input type="hidden" name="adults_count" value="<?= $post['adults_count'] ?>">
-                     <?= $form->field($model, 'user_id')->hiddenInput(['maxlength' => true])->label(false) ?>
+                     <?= $form->field($model, 'user_id')->hiddenInput(['value' => Yii::$app->user->identity->id])->label(false) ?>
                      <?= $form->field($model, 'package_id')->hiddenInput(['maxlength' => true])->label(false) ?>
                      <?= $form->field($model, 'type_id')->hiddenInput(['maxlength' => true])->label(false) ?>
                      <?= $form->field($model, 'pick_up_location_id')->hiddenInput(['maxlength' => true])->label(false) ?>
                      <?= $form->field($model, 'location_id')->hiddenInput(['maxlength' => true])->label(false) ?>
                      <?= $form->field($model, 'kid')->hiddenInput(['maxlength' => true])->label(false) ?>
-
                   </div>
                </div>
             </div>

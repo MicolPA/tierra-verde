@@ -1,6 +1,5 @@
 <?php
 
-use kartik\rating\StarRating;
 $this->title = 'Home';
 
 $user_id = isset(Yii::$app->user->identity->id) ? Yii::$app->user->identity->id : null;
@@ -69,19 +68,6 @@ $user_id = isset(Yii::$app->user->identity->id) ? Yii::$app->user->identity->id 
                                 <?php else: ?>
                                     <a href="/tour/frontend/web/tourist-packages/set-favorite?id=<?= $m->id ?>"><span class="float-right text-muted"><i class="far fa-heart"></i></span></a>
                                 <?php endif ?>
-                                <p>
-                                    <?= StarRating::widget([
-                                        'name' => 'star_rating--',
-                                        'value' => $m->rating,
-                                        'pluginOptions' => [
-                                            'displayOnly' => true,
-                                            'theme' => 'krajee-uni',
-                                            'filledStar' => '<i class="fas fa-star"></i>',
-                                            'emptyStar' => '<i class="far fa-star"></i>',
-                                            ]
-                                        ]);
-                                     ?> 
-                                </p>
                             </div>
 
                         </a>
@@ -229,7 +215,7 @@ $user_id = isset(Yii::$app->user->identity->id) ? Yii::$app->user->identity->id 
                             <i class="fas fa-walking"></i>
                         </div>
 
-                        <p class="font-weight-bold-2 mt-3">
+                        <p class="font-weight-normal h4 mt-3">
                             <span class="text-success">H24</span>
                             <span>Support</span>
                         </p>

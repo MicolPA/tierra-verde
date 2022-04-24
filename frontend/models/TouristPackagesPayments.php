@@ -32,9 +32,9 @@ class TouristPackagesPayments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['from', 'until', 'adults_amount', 'kids_amount', 'tourist_packages_id', 'created_at', 'updated_at'], 'required'],
+            [['from', 'until', 'tourist_packages_id', 'created_at', 'updated_at'], 'required'],
             [['from', 'until', 'tourist_packages_id'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at', 'adults_amount', 'kids_amount',], 'safe'],
         ];
     }
 

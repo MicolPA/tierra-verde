@@ -51,15 +51,15 @@ class Clients extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'cellphone' => 'Cellphone',
+            'first_name' => 'Nombre',
+            'last_name' => 'Apellido',
+            'cellphone' => 'Phone',
             'email' => 'Email',
             'kid' => 'Kid',
             'type_id' => 'Type ID',
             'package_id' => 'Package ID',
-            'pick_up_location_id' => 'Pick Up Location ID',
-            'created_at' => 'Created At',
+            'pick_up_location_id' => 'Localidad recogida',
+            'created_at' => 'Fecha',
             'updated_at' => 'Updated At',
         ];
     }

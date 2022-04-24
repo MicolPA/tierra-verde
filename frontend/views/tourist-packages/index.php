@@ -14,7 +14,7 @@ $this->title = 'Tourist Packages';
 <div class="container">
     <div class="row">
         <div class="col-md-3 text-gray">
-            <?= $this->render('_aside', ['model' => $searchModel]) ?>
+            <?= $this->render('_aside', ['model' => $searchModel, 'type' => $type]) ?>
         </div>
         <div class="col-md-9">
             <?php foreach ($dataProvider->query->all() as $m): ?>
@@ -40,17 +40,6 @@ $this->title = 'Tourist Packages';
                     </div>
                     <div class="col-md-8 p-3 pt-4 pb-4">
                         <p class="text-uppercase h4">
-                            <?= StarRating::widget([
-                                'name' => 'star_rating--',
-                                'value' => $m->rating,
-                                'pluginOptions' => [
-                                    'displayOnly' => true,
-                                    'theme' => 'krajee-uni',
-                                    'filledStar' => '<i class="fas fa-star"></i>',
-                                    'emptyStar' => '<i class="far fa-star"></i>',
-                                    ]
-                                ]);
-                             ?> 
                             <span class="font-weight-bold"><?= $m->name ?></span> <span class="font-weight-lighter"><?= $m->type->name ?></span> 
                             <p class="text-muted mt-3">
                                 <?= $m->short_description ?>

@@ -9,6 +9,15 @@ $cupo = $model->max_people;
 
 $this->title = $model->name;
 \yii\web\YiiAsset::register($this);
+
+
+$fotos = array();
+for ($i = 2; $i < 7; $i++) {
+    
+    if ($model["image_$i"]) {
+        $fotos[] = $model["image_$i"];
+    }
+}
 ?>
 
 <style>
@@ -20,6 +29,30 @@ $this->title = $model->name;
         border-top: 1px solid #ccc;
         border-left: 1px solid #ccc;
         border-right: 1px solid #ccc;
+    }
+
+    .divimg{
+        height: 100px !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .swal-overlay--show-modal .swal-modal{
+        width: 60%;
+        /*background: transparent;*/
+    }
+
+    .swal-icon:first-child{
+        margin: 0px !important
+    }
+
+    .swal-footer{
+        margin: 0px;
+        background: white;
+    }
+
+    .swal-icon img{
+        width: 100%;
     }
 </style>
 
@@ -39,37 +72,89 @@ $this->title = $model->name;
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-4">
+                    <p class="h3 font-weight-light">Fotos</p>
+                </div>
+                <div class="col-md-8 text-muted">
+                    <div class="row">   
+                        <?php $i =0; ?>
+                            <?php foreach ($fotos as $foto): ?>
+                                <?php $i++; ?>
+                                <div class="col-md-4">  
+                                        <a href="javascript:imgBigger('/tour/frontend/web/<?= $foto ?>')">
+                                            <div class="mb-3 divimg rounded" style="background-image:url(/tour/frontend/web/<?= $foto ?>);">   
+                                            
+                                            </div>
+                                        </a>
+                                </div>  
+                            <?php endforeach ?>
+                    </div>  
+                </div>
+                <div class="col-md-4">
                     <p class="h3 font-weight-light">Description</p>
                 </div>
                 <div class="col-md-8 text-muted">
-                        <?= $model->description ?>
+                        <div>
+                            <?= $model->description ?>
+                        </div>
+
+                        <div class="row mt-3">
+                            <?php if ($model->image_2): ?>
+                                <div class="col-md-4">
+                                    <div class="" style="height: 100px;background-size: cover;background-image:url(/tour/frontend/web/<?= $model->image_2?>);;">
+                                        
+                                    </div>
+                                </div>
+                            <?php endif ?>
+
+                            <?php if ($model->image_3): ?>
+                                <div class="col-md-4">
+                                    <div class="" style="height: 100px;background-size: cover;background-image:url(/tour/frontend/web/<?= $model->image_3?>);;">
+                                        
+                                    </div>
+                                </div>
+                            <?php endif ?>
+                            <?php if ($model->image_4): ?>
+                                <div class="col-md-4">
+                                    <div class="" style="height: 100px;background-size: cover;background-image:url(/tour/frontend/web/<?= $model->image_4?>);;">
+                                        
+                                    </div>
+                                </div>
+                            <?php endif ?>
+                        </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
+            <div>
             <?= $this->render('_book_aside', ['model' => $model]) ?>
+            <div class="card mt-3">
+                <div class="card-body text-center">
+                   <p><i class="fas fa-headset display-2 text-muted"></i></p>
+                   <p>Need <span class="text-success h6">help?</span></p>
+                   <p class="text-success h4 mb-3"><?= Yii::$app->params['phone'] ?></p>
+                   <p class="small text-muted">Lorem ipsum dolor sit, amet consectetur.</p>
+                </div> 
+            </div>
         </div>
     </div>
 
-    <div class="d-none">
-        <p class="text-muted">
-            <?= $model->description ?>
-        </p>
-        <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-            'type_id',
-            'location_id',
-            'kids',
-            'age_restricted',
-            'description',
-            'pick_up_location_id',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
-
-    </div>
+    
 </div>
+
+
+<script>
+
+        function imgBigger(id){
+
+            console.log(id);
+            // img = $("#"+id);
+            console.log(id);
+            // url = img.children().attr('src');
+            swal({
+                title: "",
+                text: '',
+                icon: id,
+              });
+
+        }
+</script>

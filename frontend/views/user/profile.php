@@ -9,7 +9,6 @@ $favorite = \frontend\models\Favorite::find()->where(['user_id' => $user->id])->
 $booked = \frontend\models\TransactionDetails::find()->where(['client_id' => $user->id])->all();
 
 $get = Yii::$app->request->get();
-
 ?>
 
 <style>
@@ -33,9 +32,10 @@ $get = Yii::$app->request->get();
    <div class="row">
         <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link text-success <?= !isset($get['favorite']) ? 'active' : '' ?>" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
-                <a class="nav-link text-success" id="v-pills-book-tab" data-toggle="pill" href="#v-pills-book" role="tab" aria-controls="v-pills-book" aria-selected="false">Booked</a>
-                <a class="nav-link text-success <?= isset($get['favorite']) ? 'active' : '' ?>" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Wishlist</a>
+                <a class="nav-link text-success <?= !isset($get['favorite']) ? 'active' : '' ?>" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-user mr-2"></i> Profile</a>
+                <a class="nav-link text-success" id="v-pills-book-tab" data-toggle="pill" href="#v-pills-book" role="tab" aria-controls="v-pills-book" aria-selected="false"><i class="fas fa-bookmark mr-2"></i> Booked</a>
+                <a class="nav-link text-success <?= isset($get['favorite']) ? 'active' : '' ?>" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-heart mr-2"></i> Wishlist</a>
+                <a class="nav-link text-muted" id="v-pills-profile-tab" href="/tour/frontend/web/site/logout" aria-selected="false"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
             </div>
         </div>
         <div class="col-9">
@@ -143,28 +143,36 @@ $get = Yii::$app->request->get();
                                             </span>
                                         </div>
 
-                                        <div class="bg-white p-2">
-                                            <span class="font-weight-bold small"><?= mb_strtoupper($package->name) ?></span>
-                                            <span class="small"><?= mb_strtoupper($package->type->name) ?></span>
-                                            <a href="#"><span class="float-right text-muted"><i class="fas fa-heart text-danger"></i></span></a>
-                                            <p>
-                                                <?= StarRating::widget([
-                                                    'name' => 'star_rating--',
-                                                    'value' => $package->rating,
-                                                    'pluginOptions' => [
-                                                        'displayOnly' => true,
-                                                        'theme' => 'krajee-uni',
-                                                        'filledStar' => '<i class="fas fa-star"></i>',
-                                                        'emptyStar' => '<i class="far fa-star"></i>',
-                                                        ]
-                                                    ]);
-                                                 ?> 
-                                            </p>
-                                        </div>
+                                        
 
                                     </a>
 
                                 </div>   
+                                <div class="col-md-6">
+                                    <div class="bg-white p-3" style="height:200px">
+                                        <span class="font-weight-bold small h4"><?= mb_strtoupper($package->name) ?></span>
+                                        <span class="small h4"><?= mb_strtoupper($package->type->name) ?></span>
+                                        <a href="#"><span class="float-right text-muted"><i class="fas fa-heart text-danger"></i></span></a>
+                                        <p class="mb-0">
+                                            <?= StarRating::widget([
+                                                'name' => 'star_rating--',
+                                                'value' => $package->rating,
+                                                'pluginOptions' => [
+                                                    'displayOnly' => true,
+                                                    'theme' => 'krajee-uni',
+                                                    'filledStar' => '<i class="fas fa-star"></i>',
+                                                    'emptyStar' => '<i class="far fa-star"></i>',
+                                                    ]
+                                                ]);
+                                             ?> 
+                                        </p>
+                                       <p class="h4 font-weight-light">Adults: <span class=""><?= $b->adults_count ?></span></p> 
+                                       <p class="h4 font-weight-light">Children: <span class=""><?= $b->children_count ?></span></p> 
+                                       <p class="display-3">
+                                           $<?= number_format($b->total_amount, 2) ?>
+                                       </p>
+                                    </div>
+                                </div>
                             <?php endif ?>
                         <?php endforeach ?>
                     </div>

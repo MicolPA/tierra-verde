@@ -31,6 +31,9 @@ class m211215_012342_create_new_table_payment extends Migration
             'procesado' => $this->integer()->defaultValue(0),
             'package_id' => $this->integer()->defaultValue(0),
             'client_id' => $this->integer()->defaultValue(0),
+            'adults_count' => $this->integer()->defaultValue(0),
+            'children_count' => $this->integer()->defaultValue(0),
+            'total_amount' => $this->integer()->defaultValue(0),
             'date' => $this->dateTime(),
         ], $tableOptions);
     }
