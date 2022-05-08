@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\TouristPackages */
 
-$this->title = 'Update Tourist Packages: ' . $model->name;
+$this->title = 'Editar paquete: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Tourist Packages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

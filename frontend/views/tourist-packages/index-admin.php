@@ -34,8 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             'attribute' => 'location.name',
                         ],
                         [
-                            'label' => 'Ubicación de salida',
-                            'attribute' => 'locationPickup.name',
+                            'format'=>'html',
+                            'label' => '',
+                            'class' => 'yii\grid\DataColumn', 
+                            'value' => function ($data) {
+                                return Html::a("Ver salidas", ['tourist-packages-payments/index', 'id' => $data->id], []);
+                                // return $data->codigo_name;
+                            },
                         ],
                         // 'age_restricted',
                         // 'created_at',

@@ -34,6 +34,7 @@ for ($i = 2; $i < 7; $i++) {
     .divimg{
         height: 100px !important;
         background-size: cover;
+        background-position: bottom;
         background-repeat: no-repeat;
     }
 
@@ -76,17 +77,24 @@ for ($i = 2; $i < 7; $i++) {
                 </div>
                 <div class="col-md-8 text-muted">
                     <div class="row">   
-                        <?php $i =0; ?>
-                            <?php foreach ($fotos as $foto): ?>
-                                <?php $i++; ?>
-                                <div class="col-md-4">  
-                                        <a href="javascript:imgBigger('/tour/frontend/web/<?= $foto ?>')">
-                                            <div class="mb-3 divimg rounded" style="background-image:url(/tour/frontend/web/<?= $foto ?>);">   
-                                            
-                                            </div>
-                                        </a>
-                                </div>  
-                            <?php endforeach ?>
+                        <?php $i =1; ?>
+                        <div class="col-md-4">  
+                            <a href="javascript:imgBigger('/tour/frontend/web/<?= $model->image_1 ?>')">
+                                <div class="mb-3 divimg rounded" style="background-image:url(/tour/frontend/web/<?= $model->image_1 ?>);">   
+                                
+                                </div>
+                            </a>
+                        </div>  
+                        <?php foreach ($fotos as $foto): ?>
+                            <?php $i++; ?>
+                            <div class="col-md-4">  
+                                <a href="javascript:imgBigger('/tour/frontend/web/<?= $foto ?>')">
+                                    <div class="mb-3 divimg rounded" style="background-image:url(/tour/frontend/web/<?= $foto ?>);">   
+                                    
+                                    </div>
+                                </a>
+                            </div>  
+                        <?php endforeach ?>
                     </div>  
                 </div>
                 <div class="col-md-4">
@@ -97,30 +105,7 @@ for ($i = 2; $i < 7; $i++) {
                             <?= $model->description ?>
                         </div>
 
-                        <div class="row mt-3">
-                            <?php if ($model->image_2): ?>
-                                <div class="col-md-4">
-                                    <div class="" style="height: 100px;background-size: cover;background-image:url(/tour/frontend/web/<?= $model->image_2?>);;">
-                                        
-                                    </div>
-                                </div>
-                            <?php endif ?>
-
-                            <?php if ($model->image_3): ?>
-                                <div class="col-md-4">
-                                    <div class="" style="height: 100px;background-size: cover;background-image:url(/tour/frontend/web/<?= $model->image_3?>);;">
-                                        
-                                    </div>
-                                </div>
-                            <?php endif ?>
-                            <?php if ($model->image_4): ?>
-                                <div class="col-md-4">
-                                    <div class="" style="height: 100px;background-size: cover;background-image:url(/tour/frontend/web/<?= $model->image_4?>);;">
-                                        
-                                    </div>
-                                </div>
-                            <?php endif ?>
-                        </div>
+                        
                 </div>
             </div>
         </div>

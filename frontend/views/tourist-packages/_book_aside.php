@@ -9,6 +9,23 @@ use yii\widgets\ActiveForm;
     <h5 class="card-header bg-secondary text-center text-white h3 font-weight-normal">- Booking -</h5>
     <div class="card-body">
       <div class="row">
+        <?php $all_locations = \frontend\models\TouristPackagesPayments::find()
+        ->where(['tourist_packages_id' => $model->id])->select(['location_id'])->distinct()->all(); ?>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Punto de partida</label>
+            <select class="form-control" name="location">
+              <option value="">Seleccionar...</option>
+              <?php foreach ($all_locations as $location): ?>
+                <?php $loc = \frontend\models\Location::findOne($location->location_id); ?>
+
+                <?php if ($loc): ?>
+                  <option value="<?= $loc->id ?>"><?= $loc->name ?></option>
+                <?php endif ?>
+              <?php endforeach ?>
+            </select>
+          </div>
+        </div>
         <!-- <div class="col-md-6">
           <div class="form-group">
             <label>Select a date</label>
